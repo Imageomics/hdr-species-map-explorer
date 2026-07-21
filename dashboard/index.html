@@ -182,6 +182,121 @@
       color: #f3efe6;
     }
     .btn-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.65rem; }
+    .data-actions { margin-top: 0.45rem; }
+    .data-actions .btn { flex: 1; min-width: 0; font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+
+    .modal[hidden] { display: none !important; }
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+    }
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(28, 36, 25, 0.45);
+      backdrop-filter: blur(3px);
+    }
+    .modal-card {
+      position: relative;
+      width: min(720px, 100%);
+      max-height: min(88vh, 820px);
+      overflow: auto;
+      background: var(--paper);
+      border: 1px solid rgba(28, 36, 25, 0.14);
+      border-radius: 3px;
+      box-shadow: 0 18px 48px rgba(28, 36, 25, 0.28);
+      padding: 1rem 1.1rem 1.1rem;
+    }
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.35rem;
+    }
+    .modal-head h2 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.35rem;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+    .modal-close {
+      border: none;
+      background: transparent;
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+      color: rgba(28, 36, 25, 0.5);
+      padding: 0.15rem 0.35rem;
+    }
+    .modal-close:hover { color: var(--clay); }
+    .modal-lede {
+      margin: 0 0 0.9rem;
+      font-size: 0.86rem;
+      line-height: 1.4;
+      color: rgba(28, 36, 25, 0.7);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+      gap: 0.85rem 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .gallery-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.45rem;
+      padding: 0.75rem 0.5rem 0.65rem;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255,255,255,0.85), transparent 70%),
+        rgba(255,255,255,0.4);
+      border: 1px solid rgba(28, 36, 25, 0.1);
+      border-radius: 2px;
+    }
+    .gallery-card .phylo-sil {
+      width: 72px;
+      height: 56px;
+      color: inherit;
+    }
+    .gallery-card .swatch {
+      width: 2rem;
+      height: 2rem;
+    }
+    .gallery-card .g-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+    .gallery-card .g-sci {
+      font-size: 0.72rem;
+      font-style: italic;
+      color: rgba(28, 36, 25, 0.55);
+      line-height: 1.3;
+    }
+    .gallery-card .g-count {
+      font-size: 0.7rem;
+      color: rgba(28, 36, 25, 0.5);
+    }
+    .modal-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(28, 36, 25, 0.1);
+    }
+    .modal-meta {
+      font-size: 0.8rem;
+      color: rgba(28, 36, 25, 0.65);
+    }
     .status {
       font-size: 0.8rem;
       margin-top: 0.5rem;
@@ -443,6 +558,10 @@
         <button type="button" class="btn" id="btn-add-species">Add</button>
         <button type="button" class="btn navy" id="btn-reset">Reset</button>
       </div>
+      <div class="btn-row data-actions">
+        <button type="button" class="btn secondary" id="btn-gallery">Species gallery</button>
+        <button type="button" class="btn secondary" id="btn-export">Export CSV</button>
+      </div>
       <div class="status" id="status" aria-live="polite"></div>
 
       <details class="advanced">
@@ -542,6 +661,22 @@
           </details>
         </div>
       </details>
+    </div>
+  </div>
+
+  <div class="modal" id="gallery-modal" hidden>
+    <div class="modal-backdrop" data-close-gallery></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="gallery-title">
+      <header class="modal-head">
+        <h2 id="gallery-title">Species gallery</h2>
+        <button type="button" class="modal-close" data-close-gallery aria-label="Close">×</button>
+      </header>
+      <p class="modal-lede">Silhouettes from PhyloPic (click any icon for its source page). Export includes location and Udvardy biogeography for each mapped specimen.</p>
+      <div class="gallery-grid" id="gallery-grid"></div>
+      <footer class="modal-foot">
+        <span class="modal-meta" id="gallery-meta"></span>
+        <button type="button" class="btn" id="btn-export-modal">Export CSV</button>
+      </footer>
     </div>
   </div>
 
@@ -943,6 +1078,7 @@
           fillOpacity: 0.7,
         }).bindPopup(popupFor(rec, sp)).addTo(allPoints);
         marker._speciesRef = sp;
+        marker._rec = rec;
         pointMarkers.push(marker);
       });
     }
@@ -1238,6 +1374,215 @@
       input.addEventListener("change", () => {
         if (input.checked) applyTheme(input.value);
       });
+    });
+
+    // --- Gallery + CSV export (with Udvardy biogeography) ---
+    const galleryModal = document.getElementById("gallery-modal");
+    const galleryGrid = document.getElementById("gallery-grid");
+    const galleryMeta = document.getElementById("gallery-meta");
+    let provincesIndex = null; // cached polygon rings for point-in-polygon
+
+    function pointInRing(lon, lat, ring) {
+      // Ray casting; ring is [[lon,lat], ...]
+      let inside = false;
+      for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+        const xi = ring[i][0];
+        const yi = ring[i][1];
+        const xj = ring[j][0];
+        const yj = ring[j][1];
+        const intersect =
+          yi > lat !== yj > lat &&
+          lon < ((xj - xi) * (lat - yi)) / ((yj - yi) || 1e-12) + xi;
+        if (intersect) inside = !inside;
+      }
+      return inside;
+    }
+
+    function pointInPolygonCoords(lon, lat, coords, type) {
+      if (type === "Polygon") {
+        if (!pointInRing(lon, lat, coords[0] || [])) return false;
+        // holes
+        for (let h = 1; h < coords.length; h++) {
+          if (pointInRing(lon, lat, coords[h])) return false;
+        }
+        return true;
+      }
+      if (type === "MultiPolygon") {
+        return coords.some((poly) => pointInPolygonCoords(lon, lat, poly, "Polygon"));
+      }
+      return false;
+    }
+
+    async function loadProvincesIndex() {
+      if (provincesIndex) return provincesIndex;
+      if (!udvardyCache.provinces) {
+        const res = await fetch("udvardy/provinces.geojson");
+        if (!res.ok) throw new Error("Could not load Udvardy provinces for export");
+        udvardyCache.provinces = await res.json();
+      }
+      provincesIndex = (udvardyCache.provinces.features || []).map((f) => ({
+        provname: f.properties.provname || "",
+        biome_gen: f.properties.biome_gen || "",
+        biomename: f.properties.biomename || "",
+        realmname: f.properties.realmname || "",
+        type: f.geometry && f.geometry.type,
+        coords: f.geometry && f.geometry.coordinates,
+      }));
+      return provincesIndex;
+    }
+
+    function lookupBiogeography(lon, lat, index) {
+      for (const p of index) {
+        if (!p.coords || !p.type) continue;
+        if (pointInPolygonCoords(lon, lat, p.coords, p.type)) {
+          return {
+            realm: p.realmname,
+            biome: p.biome_gen || p.biomename,
+            province: p.provname,
+          };
+        }
+      }
+      return { realm: "", biome: "", province: "" };
+    }
+
+    function csvEscape(val) {
+      const s = val == null ? "" : String(val);
+      if (/[",\n\r]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
+      return s;
+    }
+
+    async function buildExportRows() {
+      const index = await loadProvincesIndex();
+      const rows = [];
+      pointMarkers.forEach((m) => {
+        const sp = m._speciesRef;
+        const rec = m._rec || {};
+        const lat = rec.lat != null ? rec.lat : m.getLatLng().lat;
+        const lon = rec.lon != null ? rec.lon : m.getLatLng().lng;
+        const bio = lookupBiogeography(lon, lat, index);
+        rows.push({
+          common_name: sp.common || "",
+          scientific_name: sp.scientific || rec.scientificName || "",
+          taxon_key: sp.taxonKey || "",
+          lat,
+          lon,
+          elev_m: rec.elev_m != null ? rec.elev_m : "",
+          year: rec.year != null ? rec.year : "",
+          month: rec.month != null ? rec.month : "",
+          locality: rec.locality || "",
+          county: rec.county || "",
+          state_province: rec.stateProvince || "",
+          country: rec.country || "",
+          country_code: rec.countryCode || "",
+          basis_of_record: rec.basisOfRecord || "",
+          gbif_id: rec.gbifID || "",
+          gbif_url: rec.source_url || "",
+          udvardy_realm: bio.realm,
+          udvardy_biome: bio.biome,
+          udvardy_province: bio.province,
+        });
+      });
+      return rows;
+    }
+
+    async function exportCsv() {
+      if (!pointMarkers.length) {
+        setStatus("No specimen locations to export yet. Add species first.", true);
+        return;
+      }
+      setStatus(`Building CSV with Udvardy biogeography for ${pointMarkers.length} locations…`);
+      try {
+        const rows = await buildExportRows();
+        const cols = [
+          "common_name", "scientific_name", "taxon_key",
+          "lat", "lon", "elev_m", "year", "month",
+          "locality", "county", "state_province", "country", "country_code",
+          "basis_of_record", "gbif_id", "gbif_url",
+          "udvardy_realm", "udvardy_biome", "udvardy_province",
+        ];
+        const lines = [cols.join(",")];
+        rows.forEach((row) => {
+          lines.push(cols.map((c) => csvEscape(row[c])).join(","));
+        });
+        const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8" });
+        const a = document.createElement("a");
+        const stamp = new Date().toISOString().slice(0, 10);
+        a.href = URL.createObjectURL(blob);
+        a.download = `specimen_biogeography_${stamp}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(a.href);
+        const withBio = rows.filter((r) => r.udvardy_province).length;
+        setStatus(`Exported ${rows.length} rows (${withBio} with Udvardy province match).`);
+      } catch (e) {
+        setStatus(e.message || String(e), true);
+      }
+    }
+
+    function countForSpecies(sp) {
+      return pointMarkers.filter(
+        (m) => m._speciesRef === sp || m._speciesRef?.taxonKey === sp.taxonKey
+      ).length;
+    }
+
+    function openGallery() {
+      galleryGrid.innerHTML = "";
+      species.forEach((sp) => {
+        const color = colorForSpecies(sp);
+        const card = document.createElement("div");
+        card.className = "gallery-card";
+        card.style.color = color;
+
+        const iconWrap = document.createElement("div");
+        iconWrap.appendChild(speciesIconEl(sp, color));
+        // Enlarge silhouette if present
+        const sil = iconWrap.querySelector(".phylo-sil");
+        if (sil) {
+          sil.style.width = "72px";
+          sil.style.height = "56px";
+        }
+
+        const name = document.createElement("div");
+        name.className = "g-name";
+        name.textContent = sp.common || sp.scientific;
+
+        const sci = document.createElement("div");
+        sci.className = "g-sci";
+        sci.textContent = sp.scientific || "";
+
+        const count = document.createElement("div");
+        count.className = "g-count";
+        const n = countForSpecies(sp);
+        count.textContent = n ? `${n} locations` : "No locations yet";
+
+        card.appendChild(iconWrap);
+        card.appendChild(name);
+        card.appendChild(sci);
+        card.appendChild(count);
+        galleryGrid.appendChild(card);
+      });
+
+      const total = pointMarkers.length;
+      galleryMeta.textContent = `${species.length} species · ${total} mapped locations`;
+      galleryModal.hidden = false;
+    }
+
+    function closeGallery() {
+      galleryModal.hidden = true;
+    }
+
+    document.getElementById("btn-gallery").addEventListener("click", async () => {
+      await ensurePhyloPics();
+      openGallery();
+    });
+    document.getElementById("btn-export").addEventListener("click", exportCsv);
+    document.getElementById("btn-export-modal").addEventListener("click", exportCsv);
+    galleryModal.querySelectorAll("[data-close-gallery]").forEach((el) => {
+      el.addEventListener("click", closeGallery);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !galleryModal.hidden) closeGallery();
     });
 
     // --- GBIF search (runs on add / option change / boot) ---
