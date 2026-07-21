@@ -39,19 +39,143 @@
     });
   }
 
-  async function matchSpecies(name) {
+  function normalizeLabel(s) {
+    return String(s || "")
+      .toLowerCase()
+      .replace(/[-_]/g, " ")
+      .replace(/[^\w\s]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function resultFromMatch(j, query, via) {
+    return {
+      scientific: j.canonicalName || j.scientificName || query,
+      taxonKey: j.usageKey,
+      rank: j.rank,
+      status: j.status,
+      matchType: j.matchType || via || "MATCH",
+      confidence: j.confidence,
+      common: via === "VERNACULAR" ? query : null,
+      query,
+    };
+  }
+
+  async function matchScientific(name) {
     const url = new URL(`${GBIF}/species/match`);
     url.searchParams.set("name", name);
     const r = await fetch(url);
     if (!r.ok) throw new Error("Species match failed");
-    const j = await r.json();
-    if (!j.usageKey) throw new Error(`No GBIF match for “${name}”`);
+    return r.json();
+  }
+
+  function vernacularScore(item, queryNorm) {
+    const verns = item.vernacularNames || [];
+    let best = 0;
+    for (const v of verns) {
+      const vn = normalizeLabel(v.vernacularName);
+      if (!vn) continue;
+      if (vn === queryNorm) best = Math.max(best, v.preferred ? 100 : 95);
+      else if (vn.includes(queryNorm) || queryNorm.includes(vn)) best = Math.max(best, 70);
+    }
+    // Prefer backbone-linked Animalia species
+    if (item.rank === "SPECIES") best += 5;
+    if (item.kingdom === "Animalia" || item.kingdom === "Plantae" || item.kingdom === "Fungi") best += 3;
+    if (item.taxonomicStatus === "ACCEPTED") best += 2;
+    if (item.nubKey || item.speciesKey) best += 1;
+    return best;
+  }
+
+  async function searchByCommonName(query) {
+    const queryNorm = normalizeLabel(query);
+    if (!queryNorm) return null;
+
+    async function runSearch(params) {
+      const url = new URL(`${GBIF}/species/search`);
+      Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
+      const r = await fetch(url);
+      if (!r.ok) return [];
+      const j = await r.json();
+      return j.results || [];
+    }
+
+    // Prefer vernacular field, then general search
+    let results = await runSearch({
+      q: query,
+      qField: "VERNACULAR",
+      limit: "20",
+    });
+    if (!results.length) {
+      results = await runSearch({ q: query, limit: "20" });
+    }
+    if (!results.length) return null;
+
+    const ranked = results
+      .map((item) => ({ item, score: vernacularScore(item, queryNorm) }))
+      .filter((x) => x.score >= 70)
+      .sort((a, b) => b.score - a.score);
+    if (!ranked.length) return null;
+
+    const best = ranked[0].item;
+    const scientific =
+      best.canonicalName ||
+      (best.species && String(best.species)) ||
+      best.scientificName;
+    if (!scientific) return null;
+
+    // Resolve checklist/vernacular hit to GBIF backbone usageKey
+    const backbone = await matchScientific(scientific);
+    if (backbone.usageKey && backbone.matchType !== "NONE") {
+      const out = resultFromMatch(backbone, query, "VERNACULAR");
+      out.common = query;
+      return out;
+    }
+
+    const taxonKey = best.nubKey || best.speciesKey || best.key;
+    if (!taxonKey) return null;
     return {
-      scientific: j.canonicalName || j.scientificName || name,
-      taxonKey: j.usageKey,
-      rank: j.rank,
-      status: j.status,
+      scientific: scientific.replace(/\s+\([^)]*\)\s*$/, "").trim(),
+      taxonKey,
+      rank: best.rank || "SPECIES",
+      status: best.taxonomicStatus || "",
+      matchType: "VERNACULAR",
+      confidence: ranked[0].score,
+      common: query,
+      query,
     };
+  }
+
+  /**
+   * Match a scientific or common name to a GBIF backbone taxon.
+   * 1) Try GBIF scientific name matching
+   * 2) If there is no solid scientific hit, search vernacular (common) names
+   */
+  async function matchSpecies(name) {
+    const query = String(name || "").trim();
+    if (!query) throw new Error("Enter a species name");
+
+    const j = await matchScientific(query);
+    const solid =
+      j.usageKey &&
+      j.matchType &&
+      j.matchType !== "NONE" &&
+      (j.matchType === "EXACT" ||
+        j.matchType === "FUZZY" ||
+        (typeof j.confidence === "number" && j.confidence >= 90));
+
+    if (solid) {
+      return resultFromMatch(j, query, j.matchType);
+    }
+
+    const viaCommon = await searchByCommonName(query);
+    if (viaCommon) return viaCommon;
+
+    // Last resort: accept weaker scientific match (e.g. HIGHERRANK) if present
+    if (j.usageKey && j.matchType && j.matchType !== "NONE") {
+      return resultFromMatch(j, query, j.matchType);
+    }
+
+    throw new Error(`No GBIF match for “${query}”`);
   }
 
   async function fetchPage({
