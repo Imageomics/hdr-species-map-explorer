@@ -50,31 +50,5 @@
       "cb": "overlays/prism_tmean_cb.png",
       "hc": "overlays/prism_tmean_hc.png"
     }
-  },
-  {
-    "id": "elev",
-    "label": "USGS 3DEP elevation (ft)",
-    "file": "overlays/elev_3dep.png",
-    "bounds": [
-      [
-        36.71785714285715,
-        -109.1
-      ],
-      [
-        41.28214285714286,
-        -102.0
-      ]
-    ],
-    "units": "feet",
-    "vmin": 3623.0,
-    "vmax": 12091.0,
-    "period": "static DEM",
-    "source_name": "USGS 3DEP Elevation",
-    "source_url": "https://www.usgs.gov/3d-elevation-program",
-    "files": {
-      "default": "overlays/elev_3dep.png",
-      "cb": "overlays/elev_3dep_cb.png",
-      "hc": "overlays/elev_3dep_hc.png"
-    }
   }
 ]
