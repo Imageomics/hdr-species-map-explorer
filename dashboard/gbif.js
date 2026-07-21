@@ -6,10 +6,37 @@
     return new Promise((res) => setTimeout(res, ms));
   }
 
+  /** First still image from a GBIF occurrence, sized for map popups when possible. */
+  function imageFromOccurrence(o) {
+    const media = Array.isArray(o.media) ? o.media : [];
+    for (const m of media) {
+      const type = String(m.type || "");
+      const format = String(m.format || "").toLowerCase();
+      if (type && type !== "StillImage") continue;
+      if (format && !format.startsWith("image/")) continue;
+      let url = String(m.identifier || "").trim();
+      if (!url || !/^https?:\/\//i.test(url)) {
+        url = String(m.references || "").trim();
+      }
+      if (!url || !/^https?:\/\//i.test(url)) continue;
+      // iNat open-data originals are huge — prefer medium for the popup
+      url = url
+        .replace(/\/original\.(jpe?g|png|webp)(\?|$)/i, "/medium.$1$2")
+        .replace(/\/large\.(jpe?g|png|webp)(\?|$)/i, "/medium.$1$2");
+      return {
+        url,
+        credit: String(m.creator || m.rightsHolder || "").trim(),
+        license: String(m.license || "").trim(),
+      };
+    }
+    return null;
+  }
+
   function recordFromOccurrence(o) {
     const lat = o.decimalLatitude;
     const lon = o.decimalLongitude;
     if (lat == null || lon == null) return null;
+    const photo = imageFromOccurrence(o);
     return {
       lat,
       lon,
@@ -24,6 +51,8 @@
       gbifID: o.key,
       basisOfRecord: o.basisOfRecord || "",
       elev_m: o.elevation,
+      image_url: photo ? photo.url : null,
+      image_credit: photo ? photo.credit : null,
       source_url: `https://www.gbif.org/occurrence/${o.key}`,
       source_name: "GBIF occurrence",
     };
