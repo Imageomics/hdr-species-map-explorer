@@ -1,0 +1,486 @@
+organism,scientific_name,lat,lon,year,locality,county,elev_m,gbifID,basisOfRecord,source_name,source_url
+American pika,Ochotona princeps,38.978707,-106.822057,2026,,,,6320151633,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6320151633
+American pika,Ochotona princeps,39.661033,-105.882645,2026,,,,6188252563,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188252563
+American pika,Ochotona princeps,39.66149,-105.882731,2026,,,,6234327205,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6234327205
+American pika,Ochotona princeps,39.631488,-106.134789,2026,,,,6235278902,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235278902
+American pika,Ochotona princeps,39.073397,-107.008135,2026,,,,6236378677,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6236378677
+American pika,Ochotona princeps,39.66193,-105.880638,2026,,,,6251516035,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6251516035
+American pika,Ochotona princeps,39.038826,-107.986895,2026,,,,6252372274,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6252372274
+American pika,Ochotona princeps,40.395053,-105.87497,2026,,,,6321108044,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6321108044
+American pika,Ochotona princeps,40.62754,-105.801455,2026,,,,6334450850,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6334450850
+American pika,Ochotona princeps,40.263675,-105.615242,2026,,,,6334792828,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6334792828
+American pika,Ochotona princeps,40.29768,-105.641717,2026,,,,6334804847,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6334804847
+American pika,Ochotona princeps,40.313775,-105.67865,2026,,,,6352674428,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6352674428
+American pika,Ochotona princeps,37.791254,-107.535316,2026,,,,6353057440,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6353057440
+American pika,Ochotona princeps,39.411308,-106.133567,2026,,,,6353099645,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6353099645
+American pika,Ochotona princeps,40.394715,-105.671184,2026,,,,6353240556,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6353240556
+American pika,Ochotona princeps,40.290937,-105.520638,2026,,,,6353386673,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6353386673
+American pika,Ochotona princeps,40.401173,-105.68596,2026,,,,6430811709,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6430811709
+American pika,Ochotona princeps,39.4696,-106.459336,2026,,,,6398902689,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6398902689
+American pika,Ochotona princeps,40.482131,-105.904869,2026,,,,6399527725,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6399527725
+American pika,Ochotona princeps,38.799265,-106.369207,2026,,,,6399545834,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6399545834
+American pika,Ochotona princeps,38.847015,-107.029058,2026,,,,6399878638,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6399878638
+American pika,Ochotona princeps,39.095122,-106.95129,2026,,,,6400163289,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6400163289
+American pika,Ochotona princeps,40.267664,-105.611927,2026,,,,6400777813,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6400777813
+American pika,Ochotona princeps,40.41198,-105.733047,2026,,,,6400810680,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6400810680
+American pika,Ochotona princeps,39.6409,-105.820655,2026,,,,6400838538,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6400838538
+American pika,Ochotona princeps,40.235083,-105.483613,2026,,,,6413076301,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6413076301
+American pika,Ochotona princeps,40.411689,-105.732963,2026,,,,6413106896,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6413106896
+American pika,Ochotona princeps,37.794605,-107.545958,2026,,,,6413216456,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6413216456
+American pika,Ochotona princeps,39.215895,-106.177572,2026,,,,6413454326,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6413454326
+American pika,Ochotona princeps,40.439398,-105.760717,2026,,,,6413560406,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6413560406
+American pika,Ochotona princeps,40.4127,-105.731742,2026,,,,6413598744,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6413598744
+American pika,Ochotona princeps,39.089456,-106.962875,2026,,,,6413751486,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6413751486
+American pika,Ochotona princeps,40.315945,-105.672813,2026,,,,6413904399,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6413904399
+American pika,Ochotona princeps,39.152924,-106.565856,2026,,,,6413996349,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6413996349
+American pika,Ochotona princeps,39.113294,-107.024938,2026,,,,6414110033,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6414110033
+American pika,Ochotona princeps,40.412675,-105.73178,2026,,,,6422073077,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6422073077
+American pika,Ochotona princeps,40.425891,-105.757384,2026,,,,6422225896,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6422225896
+American pika,Ochotona princeps,39.087875,-106.435646,2026,,,,6422348534,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6422348534
+American pika,Ochotona princeps,40.482515,-105.886064,2026,,,,6422512983,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6422512983
+American pika,Ochotona princeps,38.953615,-106.298786,2026,,,,6422544369,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6422544369
+American pika,Ochotona princeps,39.309269,-106.171621,2026,,,,6422575718,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6422575718
+American pika,Ochotona princeps,39.970238,-105.793229,2026,,,,6422751742,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6422751742
+American pika,Ochotona princeps,40.412511,-105.733466,2026,,,,6422805540,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6422805540
+American pika,Ochotona princeps,40.432636,-105.76868,2026,,,,6422878392,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6422878392
+American pika,Ochotona princeps,39.582765,-105.668615,2026,,,,6422973393,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6422973393
+American pika,Ochotona princeps,39.601688,-105.739041,2026,,,,6423026586,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6423026586
+American pika,Ochotona princeps,37.795275,-107.549504,2026,,,,6423101008,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6423101008
+American pika,Ochotona princeps,40.412346,-105.733313,2026,,,,6423183595,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6423183595
+American pika,Ochotona princeps,39.035781,-106.998367,2026,,,,6430759361,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6430759361
+American pika,Ochotona princeps,38.845946,-106.318731,2026,,,,6431342899,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6431342899
+American pika,Ochotona princeps,40.161245,-105.585725,2026,,,,6431785453,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6431785453
+American pika,Ochotona princeps,39.411028,-106.133408,2026,,,,6431026870,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6431026870
+American pika,Ochotona princeps,39.006017,-106.861215,2026,,,,6431268061,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6431268061
+American pika,Ochotona princeps,40.098875,-105.616391,2026,,,,6431273024,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6431273024
+American pika,Ochotona princeps,40.411989,-105.733253,2026,,,,6431464331,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6431464331
+American pika,Ochotona princeps,40.447205,-105.75412,2026,,,,6431553348,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6431553348
+American pika,Ochotona princeps,39.675322,-105.860603,2026,,,,6431574920,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6431574920
+American pika,Ochotona princeps,39.032593,-107.070339,2026,,,,6431831319,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6431831319
+American pika,Ochotona princeps,37.87328,-107.739678,2025,,,,5154050972,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5154050972
+American pika,Ochotona princeps,39.660801,-105.881494,2025,,,,5166983388,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5166983388
+American pika,Ochotona princeps,40.402226,-105.66838,2025,,,,5167062166,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5167062166
+American pika,Ochotona princeps,40.419567,-105.749324,2025,,,,5167889199,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5167889199
+American pika,Ochotona princeps,39.090183,-106.960648,2025,,,,5168026180,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5168026180
+American pika,Ochotona princeps,39.657433,-105.856616,2025,,,,5187855707,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5187855707
+American pika,Ochotona princeps,39.39476,-106.094228,2025,,,,5840335308,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5840335308
+American pika,Ochotona princeps,40.401048,-105.67078,2025,,,,6178734525,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6178734525
+American pika,Ochotona princeps,40.41165,-105.732753,2025,,,,5188072383,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5188072383
+American pika,Ochotona princeps,40.395813,-105.713772,2025,,,,5188280529,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5188280529
+American pika,Ochotona princeps,39.666671,-105.86391,2025,,,,5188348577,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5188348577
+American pika,Ochotona princeps,38.84292,-105.04989,2025,,,,5198629592,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5198629592
+American pika,Ochotona princeps,40.395921,-105.713683,2025,,,,5205926679,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5205926679
+American pika,Ochotona princeps,39.119285,-106.443694,2025,,,,5205931736,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5205931736
+American pika,Ochotona princeps,40.411442,-105.73256,2025,,,,5205986084,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5205986084
+American pika,Ochotona princeps,40.28975,-105.51861,2025,,,,5205995087,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5205995087
+American pika,Ochotona princeps,39.048822,-108.075036,2025,,,,5206047791,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5206047791
+American pika,Ochotona princeps,40.395757,-105.713785,2025,,,,5206164344,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5206164344
+American pika,Ochotona princeps,40.3159,-105.672945,2025,,,,5206423863,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5206423863
+American pika,Ochotona princeps,37.794532,-107.545027,2025,,,,5206749581,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5206749581
+American pika,Ochotona princeps,40.41294,-105.732221,2025,,,,5215682195,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5215682195
+American pika,Ochotona princeps,40.375947,-105.785613,2025,,,,5215997676,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5215997676
+American pika,Ochotona princeps,37.907955,-107.769317,2025,,,,5216247197,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5216247197
+American pika,Ochotona princeps,40.395606,-105.71276,2025,,,,5216491730,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5216491730
+American pika,Ochotona princeps,37.898854,-107.82294,2025,,,,5216689417,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5216689417
+American pika,Ochotona princeps,39.671224,-106.310899,2025,,,,5217038982,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5217038982
+American pika,Ochotona princeps,37.907975,-107.769362,2025,,,,5217223185,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5217223185
+American pika,Ochotona princeps,40.342519,-105.683639,2025,,,,5827876411,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5827876411
+American pika,Ochotona princeps,39.339478,-106.130736,2025,,,,5830707011,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5830707011
+American pika,Ochotona princeps,37.83191,-107.901635,2025,,,,5868032268,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5868032268
+American pika,Ochotona princeps,39.143689,-106.409088,2025,,,,5868256654,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5868256654
+American pika,Ochotona princeps,37.831866,-107.901237,2025,,,,5938171331,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5938171331
+American pika,Ochotona princeps,40.156845,-105.621338,2025,,,,5938268824,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5938268824
+American pika,Ochotona princeps,37.832105,-107.901468,2025,,,,5938609082,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5938609082
+American pika,Ochotona princeps,40.161197,-105.586555,2025,,,,5215897623,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5215897623
+American pika,Ochotona princeps,40.39587,-105.713662,2025,,,,5215910485,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5215910485
+American pika,Ochotona princeps,40.41214,-105.733177,2025,,,,5216209279,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5216209279
+American pika,Ochotona princeps,40.442125,-105.754011,2025,,,,5216230571,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5216230571
+American pika,Ochotona princeps,39.604347,-105.734062,2025,,,,5217030035,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5217030035
+American pika,Ochotona princeps,39.677983,-105.858075,2025,,,,5217100081,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5217100081
+American pika,Ochotona princeps,40.069103,-105.609262,2025,,,,5217538019,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5217538019
+American pika,Ochotona princeps,39.659018,-105.891928,2025,,,,5229983206,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5229983206
+American pika,Ochotona princeps,40.410617,-105.730691,2025,,,,5230060735,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5230060735
+American pika,Ochotona princeps,40.395858,-105.713647,2025,,,,5230075826,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5230075826
+American pika,Ochotona princeps,40.395645,-105.712753,2025,,,,5230161861,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5230161861
+American pika,Ochotona princeps,39.942867,-105.6838,2025,,,,5230171101,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5230171101
+American pika,Ochotona princeps,40.427331,-105.758455,2025,,,,5230229472,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5230229472
+American pika,Ochotona princeps,40.288602,-105.678298,2025,,,,5230265211,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5230265211
+American pika,Ochotona princeps,39.642289,-105.81022,2025,,,,5230298214,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5230298214
+American pika,Ochotona princeps,38.883103,-106.941247,2025,,,,5230491939,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5230491939
+American pika,Ochotona princeps,39.58245,-105.668992,2025,,,,5230511080,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5230511080
+American pika,Ochotona princeps,40.427624,-105.758916,2025,,,,5230564444,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5230564444
+American pika,Ochotona princeps,38.827845,-106.409216,2025,,,,5230587388,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5230587388
+American pika,Ochotona princeps,40.39585,-105.713735,2025,,,,5230592562,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5230592562
+American pika,Ochotona princeps,39.582764,-105.668615,2025,,,,5230610092,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5230610092
+American pika,Ochotona princeps,40.373613,-105.781662,2025,,,,5230834908,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5230834908
+American pika,Ochotona princeps,39.124006,-106.437928,2025,,,,5230877459,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5230877459
+American pika,Ochotona princeps,39.327325,-106.121811,2025,,,,5230971471,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5230971471
+American pika,Ochotona princeps,39.658542,-105.880875,2025,,,,5231018996,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231018996
+American pika,Ochotona princeps,39.056978,-106.65124,2025,,,,5231030257,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231030257
+American pika,Ochotona princeps,40.468797,-105.751799,2025,,,,5231142135,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231142135
+American pika,Ochotona princeps,38.067132,-107.461371,2025,,,,5231142625,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231142625
+American pika,Ochotona princeps,40.437113,-105.76732,2025,,,,5231153262,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231153262
+American pika,Ochotona princeps,40.292275,-105.52165,2025,,,,5231162795,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231162795
+American pika,Ochotona princeps,37.829301,-107.800576,2025,,,,5231177331,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231177331
+American pika,Ochotona princeps,40.421514,-105.691246,2025,,,,5231314835,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231314835
+American pika,Ochotona princeps,38.826094,-106.413768,2025,,,,5231317164,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231317164
+American pika,Ochotona princeps,39.117714,-106.44532,2025,,,,5231319524,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231319524
+American pika,Ochotona princeps,39.116347,-107.047028,2025,,,,5231430743,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231430743
+American pika,Ochotona princeps,40.019675,-105.649697,2025,,,,5231431157,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231431157
+American pika,Ochotona princeps,39.946543,-105.679842,2025,,,,5231432136,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231432136
+American pika,Ochotona princeps,39.432866,-106.218257,2025,,,,5231524217,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231524217
+American pika,Ochotona princeps,40.528714,-105.667234,2025,,,,5231579274,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231579274
+American pika,Ochotona princeps,40.410084,-105.716025,2025,,,,5231624347,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231624347
+American pika,Ochotona princeps,40.103242,-105.61273,2025,,,,5231765656,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231765656
+American pika,Ochotona princeps,38.705813,-106.417908,2025,,,,5231779572,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231779572
+American pika,Ochotona princeps,38.826813,-106.41147,2025,,,,5231899109,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231899109
+American pika,Ochotona princeps,40.412705,-105.734092,2025,,,,5231918560,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5231918560
+American pika,Ochotona princeps,40.483158,-105.8834,2025,,,,5237593373,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5237593373
+American pika,Ochotona princeps,40.440775,-105.755052,2025,,,,5237624708,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5237624708
+American pika,Ochotona princeps,39.582605,-105.668687,2025,,,,5237680611,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5237680611
+American pika,Ochotona princeps,40.28939,-105.518534,2025,,,,5237716633,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5237716633
+American pika,Ochotona princeps,39.946373,-105.680021,2025,,,,5237722119,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5237722119
+American pika,Ochotona princeps,38.822657,-106.748845,2025,,,,5237806056,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5237806056
+American pika,Ochotona princeps,40.39588,-105.713797,2025,,,,5237822368,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5237822368
+American pika,Ochotona princeps,40.263958,-105.615288,2025,,,,5237832397,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5237832397
+American pika,Ochotona princeps,39.557209,-106.196135,2025,,,,5237865261,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5237865261
+American pika,Ochotona princeps,39.639855,-105.819347,2025,,,,5237912372,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5237912372
+American pika,Ochotona princeps,39.0734,-106.9712,2025,,,,5237968267,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5237968267
+American pika,Ochotona princeps,39.661202,-105.883609,2025,,,,5238037779,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5238037779
+American pika,Ochotona princeps,39.388897,-106.092553,2025,,,,5238040182,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5238040182
+American pika,Ochotona princeps,39.358459,-106.040657,2025,,,,5238053589,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5238053589
+American pika,Ochotona princeps,39.515258,-106.109589,2025,,,,5238074718,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5238074718
+American pika,Ochotona princeps,39.970688,-107.257287,2025,,,,5238081789,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5238081789
+American pika,Ochotona princeps,39.654376,-105.879346,2025,,,,5238088775,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5238088775
+American pika,Ochotona princeps,40.358774,-105.700064,2025,,,,5238153331,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5238153331
+American pika,Ochotona princeps,37.536331,-106.800713,2025,,,,5281910593,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5281910593
+American pika,Ochotona princeps,40.069128,-105.609317,2025,,,,5282038887,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282038887
+American pika,Ochotona princeps,39.661835,-105.88118,2025,,,,5282153037,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282153037
+American pika,Ochotona princeps,39.6195,-106.13169,2025,,,,5282195444,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282195444
+American pika,Ochotona princeps,39.68531,-105.926125,2025,,,,5282238262,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282238262
+American pika,Ochotona princeps,39.037286,-106.827704,2025,,,,5282281027,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282281027
+American pika,Ochotona princeps,39.662306,-105.8809,2025,,,,5282311725,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282311725
+American pika,Ochotona princeps,40.411642,-105.732828,2025,,,,5282445090,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282445090
+American pika,Ochotona princeps,40.314225,-105.677548,2025,,,,5282456980,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282456980
+American pika,Ochotona princeps,39.086433,-106.9687,2025,,,,5282457237,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282457237
+American pika,Ochotona princeps,40.412258,-105.733305,2025,,,,5282517305,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282517305
+American pika,Ochotona princeps,39.662708,-105.884106,2025,,,,5282546760,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282546760
+American pika,Ochotona princeps,40.440907,-105.754545,2025,,,,5282573666,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282573666
+American pika,Ochotona princeps,39.897258,-105.680156,2025,,,,5282583072,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282583072
+American pika,Ochotona princeps,39.661578,-105.883146,2025,,,,5282636304,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282636304
+American pika,Ochotona princeps,40.412944,-105.729003,2025,,,,5291745264,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5291745264
+American pika,Ochotona princeps,40.395867,-105.713682,2025,,,,5291769488,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5291769488
+American pika,Ochotona princeps,39.661793,-105.881374,2025,,,,5292147487,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292147487
+American pika,Ochotona princeps,39.194146,-106.470084,2025,,,,5292341749,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292341749
+American pika,Ochotona princeps,40.395888,-105.713742,2025,,,,5292567789,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292567789
+American pika,Ochotona princeps,37.963325,-107.006164,2025,,,,5292611960,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292611960
+American pika,Ochotona princeps,40.7823,-106.680852,2025,,,,5292789735,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292789735
+American pika,Ochotona princeps,39.660273,-105.884582,2025,,,,5292888436,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292888436
+American pika,Ochotona princeps,38.971378,-106.371072,2025,,,,5293130767,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5293130767
+American pika,Ochotona princeps,40.4123,-105.73333,2025,,,,5293148639,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5293148639
+American pika,Ochotona princeps,40.41235,-105.733167,2025,,,,5293201719,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5293201719
+American pika,Ochotona princeps,40.412227,-105.733237,2025,,,,5293229036,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5293229036
+American pika,Ochotona princeps,40.39594,-105.713795,2025,,,,5293265531,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5293265531
+American pika,Ochotona princeps,39.644734,-105.809233,2025,,,,5761023436,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5761023436
+American pika,Ochotona princeps,39.580637,-105.671524,2025,,,,5761149164,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5761149164
+American pika,Ochotona princeps,39.39498,-106.090651,2025,,,,5828516478,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5828516478
+American pika,Ochotona princeps,39.214317,-106.177283,2025,,,,5839899697,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5839899697
+American pika,Ochotona princeps,40.003249,-107.232435,2025,,,,5867790176,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5867790176
+American pika,Ochotona princeps,37.993988,-107.789655,2025,,,,5897445520,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5897445520
+American pika,Ochotona princeps,39.386635,-106.101789,2025,,,,5936188700,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5936188700
+American pika,Ochotona princeps,40.263747,-105.615395,2025,,,,6131385155,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6131385155
+American pika,Ochotona princeps,38.649419,-106.403492,2025,,,,6170869873,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6170869873
+American pika,Ochotona princeps,39.625709,-105.782314,2025,,,,6179168798,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6179168798
+American pika,Ochotona princeps,40.446807,-105.75465,2025,,,,6413507365,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6413507365
+American pika,Ochotona princeps,37.957025,-107.032892,2025,,,,6431833324,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6431833324
+American pika,Ochotona princeps,38.844135,-106.415332,2025,,,,5281771942,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5281771942
+American pika,Ochotona princeps,39.631613,-106.134422,2025,,,,5281782715,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5281782715
+American pika,Ochotona princeps,39.631728,-106.133911,2025,,,,5281843444,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5281843444
+American pika,Ochotona princeps,37.57873,-105.485742,2025,,,,5281854980,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5281854980
+American pika,Ochotona princeps,37.961883,-106.94017,2025,,,,5281863481,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5281863481
+American pika,Ochotona princeps,37.569845,-105.520753,2025,,,,5281902106,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5281902106
+American pika,Ochotona princeps,39.36505,-106.043297,2025,,,,5281934412,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5281934412
+American pika,Ochotona princeps,39.631653,-106.1343,2025,,,,5282004012,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282004012
+American pika,Ochotona princeps,39.54947,-106.206055,2025,,,,5282026784,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282026784
+American pika,Ochotona princeps,39.631595,-106.134803,2025,,,,5282068720,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282068720
+American pika,Ochotona princeps,39.631653,-106.134308,2025,,,,5282207095,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282207095
+American pika,Ochotona princeps,37.567617,-105.510184,2025,,,,5282285769,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282285769
+American pika,Ochotona princeps,39.631533,-106.134833,2025,,,,5282323399,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282323399
+American pika,Ochotona princeps,40.316967,-105.691667,2025,,,,5282337321,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282337321
+American pika,Ochotona princeps,39.631655,-106.134133,2025,,,,5282433421,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282433421
+American pika,Ochotona princeps,40.411518,-105.732597,2025,,,,5282480981,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282480981
+American pika,Ochotona princeps,40.412925,-105.72892,2025,,,,5282532426,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5282532426
+American pika,Ochotona princeps,39.386555,-106.103599,2025,,,,5291741398,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5291741398
+American pika,Ochotona princeps,40.412173,-105.733187,2025,,,,5291746377,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5291746377
+American pika,Ochotona princeps,39.667245,-105.894993,2025,,,,5291753640,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5291753640
+American pika,Ochotona princeps,38.828084,-106.409099,2025,,,,5291804009,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5291804009
+American pika,Ochotona princeps,39.388787,-106.092084,2025,,,,5291822845,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5291822845
+American pika,Ochotona princeps,40.411696,-105.732854,2025,,,,5291847597,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5291847597
+American pika,Ochotona princeps,40.428659,-105.759545,2025,,,,5291937365,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5291937365
+American pika,Ochotona princeps,38.776422,-106.383843,2025,,,,5291942638,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5291942638
+American pika,Ochotona princeps,40.353638,-105.702814,2025,,,,5291969574,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5291969574
+American pika,Ochotona princeps,39.17123,-106.48038,2025,,,,5291979156,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5291979156
+American pika,Ochotona princeps,40.412838,-105.729198,2025,,,,5292053611,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292053611
+American pika,Ochotona princeps,39.117546,-106.445741,2025,,,,5292076502,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292076502
+American pika,Ochotona princeps,39.386483,-106.105692,2025,,,,5292080004,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292080004
+American pika,Ochotona princeps,40.395857,-105.713789,2025,,,,5292114620,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292114620
+American pika,Ochotona princeps,37.912878,-107.504364,2025,,,,5292172157,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292172157
+American pika,Ochotona princeps,40.181993,-105.64641,2025,,,,5292186269,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292186269
+American pika,Ochotona princeps,39.530724,-106.417601,2025,,,,5292312589,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292312589
+American pika,Ochotona princeps,37.9049,-107.510769,2025,,,,5292327126,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292327126
+American pika,Ochotona princeps,39.481485,-106.479987,2025,,,,5292366309,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292366309
+American pika,Ochotona princeps,39.1729,-106.47688,2025,,,,5292398785,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292398785
+American pika,Ochotona princeps,39.47795,-106.480545,2025,,,,5292433533,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292433533
+American pika,Ochotona princeps,40.583261,-105.667541,2025,,,,5292435652,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292435652
+American pika,Ochotona princeps,40.412183,-105.733264,2025,,,,5292513976,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292513976
+American pika,Ochotona princeps,39.499268,-106.09947,2025,,,,5292537573,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292537573
+American pika,Ochotona princeps,40.307278,-105.683262,2025,,,,5292618619,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292618619
+American pika,Ochotona princeps,39.492378,-106.458183,2025,,,,5292626684,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292626684
+American pika,Ochotona princeps,40.095842,-105.584755,2025,,,,5292632266,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292632266
+American pika,Ochotona princeps,40.424943,-105.752532,2025,,,,5292635333,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292635333
+American pika,Ochotona princeps,39.790919,-105.81262,2025,,,,5292650639,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292650639
+American pika,Ochotona princeps,39.530176,-106.416028,2025,,,,5292689297,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292689297
+American pika,Ochotona princeps,40.412108,-105.733208,2025,,,,5292705666,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292705666
+American pika,Ochotona princeps,40.095847,-105.584763,2025,,,,5292774162,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292774162
+American pika,Ochotona princeps,39.386657,-106.105,2025,,,,5292823861,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5292823861
+Black-tailed prairie dog,Cynomys ludovicianus,39.93733,-105.160199,2026,,,,5938162757,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5938162757
+Black-tailed prairie dog,Cynomys ludovicianus,39.606621,-105.098504,2026,,,,5938363394,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5938363394
+Black-tailed prairie dog,Cynomys ludovicianus,39.849422,-104.818614,2026,,,,5938386193,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5938386193
+Black-tailed prairie dog,Cynomys ludovicianus,39.602867,-105.082672,2026,,,,5938394543,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5938394543
+Black-tailed prairie dog,Cynomys ludovicianus,40.153728,-105.178207,2026,,,,5938407290,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5938407290
+Black-tailed prairie dog,Cynomys ludovicianus,39.885752,-105.067017,2026,,,,5938424046,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5938424046
+Black-tailed prairie dog,Cynomys ludovicianus,38.713964,-104.716029,2026,,,,5938538463,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5938538463
+Black-tailed prairie dog,Cynomys ludovicianus,40.021903,-105.155128,2026,,,,5938592516,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5938592516
+Black-tailed prairie dog,Cynomys ludovicianus,39.871187,-105.026359,2026,,,,5938606339,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5938606339
+Black-tailed prairie dog,Cynomys ludovicianus,39.913883,-105.065117,2026,,,,5938647267,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/5938647267
+Black-tailed prairie dog,Cynomys ludovicianus,40.158592,-105.29563,2026,,,,6129832035,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6129832035
+Black-tailed prairie dog,Cynomys ludovicianus,40.234705,-105.218798,2026,,,,6129843451,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6129843451
+Black-tailed prairie dog,Cynomys ludovicianus,39.816858,-104.879039,2026,,,,6130009616,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6130009616
+Black-tailed prairie dog,Cynomys ludovicianus,39.844278,-104.817052,2026,,,,6130020437,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6130020437
+Black-tailed prairie dog,Cynomys ludovicianus,39.882942,-104.932811,2026,,,,6130094697,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6130094697
+Black-tailed prairie dog,Cynomys ludovicianus,39.813056,-104.828035,2026,,,,6130318365,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6130318365
+Black-tailed prairie dog,Cynomys ludovicianus,39.61828,-104.847306,2026,,,,6130460844,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6130460844
+Black-tailed prairie dog,Cynomys ludovicianus,39.537506,-105.059586,2026,,,,6130554528,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6130554528
+Black-tailed prairie dog,Cynomys ludovicianus,39.941257,-105.107947,2026,,,,6130563971,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6130563971
+Black-tailed prairie dog,Cynomys ludovicianus,40.153375,-105.299857,2026,,,,6130638321,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6130638321
+Black-tailed prairie dog,Cynomys ludovicianus,39.665333,-105.101652,2026,,,,6130812395,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6130812395
+Black-tailed prairie dog,Cynomys ludovicianus,40.24799,-105.216125,2026,,,,6130976913,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6130976913
+Black-tailed prairie dog,Cynomys ludovicianus,39.757498,-104.856267,2026,,,,6130988236,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6130988236
+Black-tailed prairie dog,Cynomys ludovicianus,40.155549,-104.991875,2026,,,,6131029996,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6131029996
+Black-tailed prairie dog,Cynomys ludovicianus,39.849552,-105.080146,2026,,,,6131150483,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6131150483
+Black-tailed prairie dog,Cynomys ludovicianus,40.559511,-105.14458,2026,,,,6131223330,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6131223330
+Black-tailed prairie dog,Cynomys ludovicianus,39.665506,-105.085495,2026,,,,6131322920,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6131322920
+Black-tailed prairie dog,Cynomys ludovicianus,40.016183,-105.240967,2026,,,,6131363714,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6131363714
+Black-tailed prairie dog,Cynomys ludovicianus,39.890087,-105.071344,2026,,,,6131608277,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6131608277
+Black-tailed prairie dog,Cynomys ludovicianus,40.155345,-105.232599,2026,,,,6131699200,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6131699200
+Black-tailed prairie dog,Cynomys ludovicianus,39.664424,-105.082537,2026,,,,6133150731,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6133150731
+Black-tailed prairie dog,Cynomys ludovicianus,39.758775,-104.85476,2026,,,,6133153046,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6133153046
+Black-tailed prairie dog,Cynomys ludovicianus,40.363916,-105.109043,2026,,,,6133185256,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6133185256
+Black-tailed prairie dog,Cynomys ludovicianus,39.936082,-105.02981,2026,,,,6133220077,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6133220077
+Black-tailed prairie dog,Cynomys ludovicianus,40.167177,-105.101928,2026,,,,6133281112,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6133281112
+Black-tailed prairie dog,Cynomys ludovicianus,40.14533,-105.29895,2026,,,,6133302408,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6133302408
+Black-tailed prairie dog,Cynomys ludovicianus,39.925144,-105.237289,2026,,,,6133343281,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6133343281
+Black-tailed prairie dog,Cynomys ludovicianus,39.760848,-104.860955,2026,,,,6133435475,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6133435475
+Black-tailed prairie dog,Cynomys ludovicianus,39.815058,-104.879558,2026,,,,6147512609,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6147512609
+Black-tailed prairie dog,Cynomys ludovicianus,39.710604,-104.808098,2026,,,,6147611652,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6147611652
+Black-tailed prairie dog,Cynomys ludovicianus,39.757884,-104.855752,2026,,,,6163024075,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6163024075
+Black-tailed prairie dog,Cynomys ludovicianus,40.195906,-105.160953,2026,,,,6178301007,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6178301007
+Black-tailed prairie dog,Cynomys ludovicianus,40.141226,-105.257581,2026,,,,6399052865,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6399052865
+Black-tailed prairie dog,Cynomys ludovicianus,39.567537,-105.059061,2026,,,,6133044226,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6133044226
+Black-tailed prairie dog,Cynomys ludovicianus,40.057408,-105.14073,2026,,,,6133258810,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6133258810
+Black-tailed prairie dog,Cynomys ludovicianus,40.082458,-105.248214,2026,,,,6133508563,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6133508563
+Black-tailed prairie dog,Cynomys ludovicianus,40.480112,-105.123847,2026,,,,6147166533,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6147166533
+Black-tailed prairie dog,Cynomys ludovicianus,39.886405,-105.067075,2026,,,,6147210998,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6147210998
+Black-tailed prairie dog,Cynomys ludovicianus,40.053704,-105.143584,2026,,,,6147280104,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6147280104
+Black-tailed prairie dog,Cynomys ludovicianus,40.053457,-105.142762,2026,,,,6147281660,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6147281660
+Black-tailed prairie dog,Cynomys ludovicianus,40.083031,-105.259637,2026,,,,6147399349,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6147399349
+Black-tailed prairie dog,Cynomys ludovicianus,39.759311,-104.86263,2026,,,,6147433257,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6147433257
+Black-tailed prairie dog,Cynomys ludovicianus,39.85511,-104.864347,2026,,,,6159196859,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6159196859
+Black-tailed prairie dog,Cynomys ludovicianus,40.048869,-105.119046,2026,,,,6159203254,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6159203254
+Black-tailed prairie dog,Cynomys ludovicianus,39.66605,-104.74578,2026,,,,6159220549,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6159220549
+Black-tailed prairie dog,Cynomys ludovicianus,39.971775,-104.748047,2026,,,,6159226407,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6159226407
+Black-tailed prairie dog,Cynomys ludovicianus,40.457883,-105.116635,2026,,,,6159271057,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6159271057
+Black-tailed prairie dog,Cynomys ludovicianus,40.484143,-105.004521,2026,,,,6159273452,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6159273452
+Black-tailed prairie dog,Cynomys ludovicianus,39.681839,-104.799647,2026,,,,6159294428,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6159294428
+Black-tailed prairie dog,Cynomys ludovicianus,39.971847,-104.747658,2026,,,,6159400604,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6159400604
+Black-tailed prairie dog,Cynomys ludovicianus,39.696053,-104.921784,2026,,,,6159401967,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6159401967
+Black-tailed prairie dog,Cynomys ludovicianus,39.88377,-105.0719,2026,,,,6159418230,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6159418230
+Black-tailed prairie dog,Cynomys ludovicianus,39.88377,-105.071908,2026,,,,6159425756,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6159425756
+Black-tailed prairie dog,Cynomys ludovicianus,39.517349,-104.998222,2026,,,,6159425860,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6159425860
+Black-tailed prairie dog,Cynomys ludovicianus,40.024094,-105.2291,2026,,,,6159479496,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6159479496
+Black-tailed prairie dog,Cynomys ludovicianus,39.681789,-104.802258,2026,,,,6159704391,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6159704391
+Black-tailed prairie dog,Cynomys ludovicianus,39.837022,-104.837586,2026,,,,6162792011,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6162792011
+Black-tailed prairie dog,Cynomys ludovicianus,39.587647,-104.566024,2026,,,,6162805250,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6162805250
+Black-tailed prairie dog,Cynomys ludovicianus,40.059781,-105.064131,2026,,,,6162967663,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6162967663
+Black-tailed prairie dog,Cynomys ludovicianus,40.539283,-105.134919,2026,,,,6163052494,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6163052494
+Black-tailed prairie dog,Cynomys ludovicianus,40.250068,-105.200971,2026,,,,6163208130,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6163208130
+Black-tailed prairie dog,Cynomys ludovicianus,39.853617,-105.141971,2026,,,,6163241682,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6163241682
+Black-tailed prairie dog,Cynomys ludovicianus,39.878757,-105.011936,2026,,,,6163348406,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6163348406
+Black-tailed prairie dog,Cynomys ludovicianus,39.622658,-104.849945,2026,,,,6163349567,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6163349567
+Black-tailed prairie dog,Cynomys ludovicianus,40.137003,-105.186861,2026,,,,6163379678,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6163379678
+Black-tailed prairie dog,Cynomys ludovicianus,39.805164,-104.821014,2026,,,,6170868442,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6170868442
+Black-tailed prairie dog,Cynomys ludovicianus,39.907517,-105.074653,2026,,,,6170908547,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6170908547
+Black-tailed prairie dog,Cynomys ludovicianus,39.620838,-104.850878,2026,,,,6170928157,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6170928157
+Black-tailed prairie dog,Cynomys ludovicianus,40.547717,-105.142647,2026,,,,6171113018,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6171113018
+Black-tailed prairie dog,Cynomys ludovicianus,39.899434,-105.052759,2026,,,,6171315158,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6171315158
+Black-tailed prairie dog,Cynomys ludovicianus,39.856653,-104.844584,2026,,,,6171367380,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6171367380
+Black-tailed prairie dog,Cynomys ludovicianus,39.572611,-104.821102,2026,,,,6187893578,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6187893578
+Black-tailed prairie dog,Cynomys ludovicianus,40.539277,-105.134906,2026,,,,6235318301,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235318301
+Black-tailed prairie dog,Cynomys ludovicianus,38.712555,-104.716503,2026,,,,6273853420,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6273853420
+Black-tailed prairie dog,Cynomys ludovicianus,39.821593,-104.828965,2026,,,,6321176960,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6321176960
+Black-tailed prairie dog,Cynomys ludovicianus,39.812837,-104.828033,2026,,,,6413826460,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6413826460
+Black-tailed prairie dog,Cynomys ludovicianus,39.886539,-104.932563,2026,,,,6178311928,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6178311928
+Black-tailed prairie dog,Cynomys ludovicianus,39.812695,-104.827688,2026,,,,6178313877,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6178313877
+Black-tailed prairie dog,Cynomys ludovicianus,40.562065,-105.146089,2026,,,,6178391169,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6178391169
+Black-tailed prairie dog,Cynomys ludovicianus,39.664676,-105.088658,2026,,,,6178400918,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6178400918
+Black-tailed prairie dog,Cynomys ludovicianus,39.658739,-104.730667,2026,,,,6178438112,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6178438112
+Black-tailed prairie dog,Cynomys ludovicianus,39.858231,-104.992638,2026,,,,6178446451,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6178446451
+Black-tailed prairie dog,Cynomys ludovicianus,39.549624,-105.119358,2026,,,,6178751614,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6178751614
+Black-tailed prairie dog,Cynomys ludovicianus,39.848637,-104.821337,2026,,,,6178946242,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6178946242
+Black-tailed prairie dog,Cynomys ludovicianus,39.715683,-104.800658,2026,,,,6179042111,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6179042111
+Black-tailed prairie dog,Cynomys ludovicianus,40.047489,-105.20713,2026,,,,6179102687,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6179102687
+Black-tailed prairie dog,Cynomys ludovicianus,39.848055,-104.865538,2026,,,,6179143629,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6179143629
+Black-tailed prairie dog,Cynomys ludovicianus,39.713383,-104.801047,2026,,,,6179233607,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6179233607
+Black-tailed prairie dog,Cynomys ludovicianus,39.846325,-104.865555,2026,,,,6179300964,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6179300964
+Black-tailed prairie dog,Cynomys ludovicianus,40.562063,-105.144439,2026,,,,6184756593,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6184756593
+Black-tailed prairie dog,Cynomys ludovicianus,39.759823,-104.862901,2026,,,,6184790298,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6184790298
+Black-tailed prairie dog,Cynomys ludovicianus,39.886289,-105.066306,2026,,,,6184811378,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6184811378
+Black-tailed prairie dog,Cynomys ludovicianus,39.603663,-105.081603,2026,,,,6184892472,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6184892472
+Black-tailed prairie dog,Cynomys ludovicianus,39.582753,-104.713112,2026,,,,6184920363,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6184920363
+Black-tailed prairie dog,Cynomys ludovicianus,39.811642,-104.824783,2026,,,,6184975028,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6184975028
+Black-tailed prairie dog,Cynomys ludovicianus,39.886101,-105.066752,2026,,,,6185258167,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185258167
+Black-tailed prairie dog,Cynomys ludovicianus,39.760634,-104.861303,2026,,,,6185300098,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185300098
+Black-tailed prairie dog,Cynomys ludovicianus,39.7985,-104.893837,2026,,,,6185307123,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185307123
+Black-tailed prairie dog,Cynomys ludovicianus,39.814125,-104.876183,2026,,,,6185312721,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185312721
+Black-tailed prairie dog,Cynomys ludovicianus,40.146641,-105.039804,2026,,,,6185444783,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185444783
+Black-tailed prairie dog,Cynomys ludovicianus,39.972098,-105.118695,2026,,,,6185481689,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185481689
+Black-tailed prairie dog,Cynomys ludovicianus,40.020681,-105.243942,2026,,,,6185578515,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185578515
+Black-tailed prairie dog,Cynomys ludovicianus,40.541333,-105.134657,2026,,,,6185586456,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185586456
+Black-tailed prairie dog,Cynomys ludovicianus,40.479962,-105.119659,2026,,,,6185615201,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185615201
+Black-tailed prairie dog,Cynomys ludovicianus,40.569258,-105.145539,2026,,,,6185736940,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185736940
+Black-tailed prairie dog,Cynomys ludovicianus,39.738262,-104.826484,2026,,,,6185760688,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185760688
+Black-tailed prairie dog,Cynomys ludovicianus,38.576512,-104.46058,2026,,,,6185810808,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185810808
+Black-tailed prairie dog,Cynomys ludovicianus,40.480045,-105.117308,2026,,,,6185838157,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185838157
+Black-tailed prairie dog,Cynomys ludovicianus,40.199902,-105.156108,2026,,,,6185851523,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185851523
+Black-tailed prairie dog,Cynomys ludovicianus,39.764245,-104.854752,2026,,,,6185872397,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185872397
+Black-tailed prairie dog,Cynomys ludovicianus,39.961791,-104.760419,2026,,,,6185878179,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185878179
+Black-tailed prairie dog,Cynomys ludovicianus,40.078489,-105.272914,2026,,,,6185913876,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185913876
+Black-tailed prairie dog,Cynomys ludovicianus,39.961718,-104.760285,2026,,,,6185970176,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185970176
+Black-tailed prairie dog,Cynomys ludovicianus,40.078706,-105.274617,2026,,,,6185976209,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6185976209
+Black-tailed prairie dog,Cynomys ludovicianus,40.562038,-105.144317,2026,,,,6186090636,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6186090636
+Black-tailed prairie dog,Cynomys ludovicianus,39.90191,-104.854729,2026,,,,6187892939,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6187892939
+Black-tailed prairie dog,Cynomys ludovicianus,39.847472,-104.82035,2026,,,,6187955231,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6187955231
+Black-tailed prairie dog,Cynomys ludovicianus,39.851538,-104.82298,2026,,,,6188128045,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188128045
+Black-tailed prairie dog,Cynomys ludovicianus,39.838228,-104.814947,2026,,,,6188128063,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188128063
+Black-tailed prairie dog,Cynomys ludovicianus,39.664725,-104.7452,2026,,,,6188155441,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188155441
+Black-tailed prairie dog,Cynomys ludovicianus,40.460496,-105.132743,2026,,,,6188169344,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188169344
+Black-tailed prairie dog,Cynomys ludovicianus,39.655128,-104.829117,2026,,,,6188228941,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188228941
+Black-tailed prairie dog,Cynomys ludovicianus,40.459463,-105.133138,2026,,,,6188329715,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188329715
+Black-tailed prairie dog,Cynomys ludovicianus,39.809104,-104.819145,2026,,,,6188460315,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188460315
+Black-tailed prairie dog,Cynomys ludovicianus,39.846058,-104.816597,2026,,,,6188466286,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188466286
+Black-tailed prairie dog,Cynomys ludovicianus,39.856228,-104.863197,2026,,,,6188469933,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188469933
+Black-tailed prairie dog,Cynomys ludovicianus,40.477975,-104.888616,2026,,,,6195282681,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6195282681
+Black-tailed prairie dog,Cynomys ludovicianus,39.889167,-105.066375,2026,,,,6195404382,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6195404382
+Black-tailed prairie dog,Cynomys ludovicianus,39.663442,-105.1018,2026,,,,6234660893,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6234660893
+Black-tailed prairie dog,Cynomys ludovicianus,40.480138,-105.121314,2026,,,,6234944990,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6234944990
+Black-tailed prairie dog,Cynomys ludovicianus,39.665778,-105.085328,2026,,,,6235454761,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235454761
+Black-tailed prairie dog,Cynomys ludovicianus,38.72201,-104.819651,2026,,,,6273831592,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6273831592
+Black-tailed prairie dog,Cynomys ludovicianus,39.886226,-105.06716,2026,,,,6320061819,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6320061819
+Black-tailed prairie dog,Cynomys ludovicianus,39.567087,-105.056549,2026,,,,6320166088,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6320166088
+Black-tailed prairie dog,Cynomys ludovicianus,39.962363,-104.759873,2026,,,,6320185066,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6320185066
+Black-tailed prairie dog,Cynomys ludovicianus,39.816098,-104.877659,2026,,,,6320239693,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6320239693
+Black-tailed prairie dog,Cynomys ludovicianus,39.893825,-104.78363,2026,,,,6320288698,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6320288698
+Black-tailed prairie dog,Cynomys ludovicianus,39.961858,-104.760356,2026,,,,6320386865,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6320386865
+Black-tailed prairie dog,Cynomys ludovicianus,39.961981,-104.759798,2026,,,,6320396070,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6320396070
+Black-tailed prairie dog,Cynomys ludovicianus,39.961951,-104.759798,2026,,,,6320399916,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6320399916
+Black-tailed prairie dog,Cynomys ludovicianus,39.815425,-104.879647,2026,,,,6320941476,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6320941476
+Black-tailed prairie dog,Cynomys ludovicianus,39.517037,-104.998062,2026,,,,6320944517,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6320944517
+Black-tailed prairie dog,Cynomys ludovicianus,39.404285,-104.81409,2026,,,,6321015035,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6321015035
+Black-tailed prairie dog,Cynomys ludovicianus,39.849493,-104.865499,2026,,,,6321208876,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6321208876
+Black-tailed prairie dog,Cynomys ludovicianus,39.584053,-104.716508,2026,,,,6398653317,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6398653317
+Black-tailed prairie dog,Cynomys ludovicianus,40.24357,-104.053033,2026,,,,6188059823,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188059823
+Black-tailed prairie dog,Cynomys ludovicianus,39.85552,-104.825613,2026,,,,6188152684,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188152684
+Black-tailed prairie dog,Cynomys ludovicianus,40.544237,-105.137571,2026,,,,6188377465,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188377465
+Black-tailed prairie dog,Cynomys ludovicianus,39.90765,-105.075958,2026,,,,6188382830,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188382830
+Black-tailed prairie dog,Cynomys ludovicianus,38.742937,-104.691061,2026,,,,6188411945,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188411945
+Black-tailed prairie dog,Cynomys ludovicianus,39.74395,-104.79522,2026,,,,6188412403,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188412403
+Black-tailed prairie dog,Cynomys ludovicianus,39.657001,-104.731006,2026,,,,6188465038,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188465038
+Black-tailed prairie dog,Cynomys ludovicianus,39.807172,-104.889265,2026,,,,6188489677,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188489677
+Black-tailed prairie dog,Cynomys ludovicianus,39.68138,-104.799553,2026,,,,6188507391,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188507391
+Black-tailed prairie dog,Cynomys ludovicianus,40.545672,-105.138406,2026,,,,6188527183,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188527183
+Black-tailed prairie dog,Cynomys ludovicianus,39.718066,-104.808153,2026,,,,6188541533,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188541533
+Black-tailed prairie dog,Cynomys ludovicianus,39.6304,-104.860011,2026,,,,6188544384,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188544384
+Black-tailed prairie dog,Cynomys ludovicianus,38.742692,-104.690581,2026,,,,6188616426,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6188616426
+Black-tailed prairie dog,Cynomys ludovicianus,39.851803,-104.86553,2026,,,,6195235966,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6195235966
+Black-tailed prairie dog,Cynomys ludovicianus,39.759652,-104.862791,2026,,,,6195365390,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6195365390
+Black-tailed prairie dog,Cynomys ludovicianus,39.88632,-104.932523,2026,,,,6195378431,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6195378431
+Black-tailed prairie dog,Cynomys ludovicianus,38.273616,-104.760146,2026,,,,6195402386,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6195402386
+Black-tailed prairie dog,Cynomys ludovicianus,40.0609,-105.263385,2026,,,,6195466535,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6195466535
+Black-tailed prairie dog,Cynomys ludovicianus,39.886257,-104.932107,2026,,,,6195480510,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6195480510
+Black-tailed prairie dog,Cynomys ludovicianus,39.886463,-104.93193,2026,,,,6195535954,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6195535954
+Black-tailed prairie dog,Cynomys ludovicianus,39.93472,-105.042717,2026,,,,6195707480,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6195707480
+Black-tailed prairie dog,Cynomys ludovicianus,39.886336,-104.932237,2026,,,,6195728622,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6195728622
+Black-tailed prairie dog,Cynomys ludovicianus,39.551617,-104.978845,2026,,,,6195859540,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6195859540
+Black-tailed prairie dog,Cynomys ludovicianus,39.838417,-104.848569,2026,,,,6234196885,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6234196885
+Black-tailed prairie dog,Cynomys ludovicianus,39.886332,-105.066479,2026,,,,6234361814,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6234361814
+Black-tailed prairie dog,Cynomys ludovicianus,39.837897,-104.864827,2026,,,,6234393144,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6234393144
+Black-tailed prairie dog,Cynomys ludovicianus,40.040034,-105.145352,2026,,,,6234489419,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6234489419
+Black-tailed prairie dog,Cynomys ludovicianus,39.387703,-104.795355,2026,,,,6234651659,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6234651659
+Black-tailed prairie dog,Cynomys ludovicianus,40.543522,-105.138091,2026,,,,6234813940,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6234813940
+Black-tailed prairie dog,Cynomys ludovicianus,38.584963,-104.47888,2026,,,,6235025432,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235025432
+Black-tailed prairie dog,Cynomys ludovicianus,40.458537,-105.132585,2026,,,,6235030324,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235030324
+Black-tailed prairie dog,Cynomys ludovicianus,39.760774,-104.860723,2026,,,,6235073712,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235073712
+Black-tailed prairie dog,Cynomys ludovicianus,40.236702,-105.222549,2026,,,,6235151105,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235151105
+Black-tailed prairie dog,Cynomys ludovicianus,40.052325,-105.144494,2026,,,,6235163401,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235163401
+Black-tailed prairie dog,Cynomys ludovicianus,39.822779,-104.850982,2026,,,,6235171314,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235171314
+Black-tailed prairie dog,Cynomys ludovicianus,39.656892,-104.730658,2026,,,,6235194003,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235194003
+Black-tailed prairie dog,Cynomys ludovicianus,39.387725,-104.795303,2026,,,,6235228903,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235228903
+Black-tailed prairie dog,Cynomys ludovicianus,39.713261,-104.801226,2026,,,,6235255996,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235255996
+Black-tailed prairie dog,Cynomys ludovicianus,40.481899,-105.06531,2026,,,,6235278574,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235278574
+Black-tailed prairie dog,Cynomys ludovicianus,39.387763,-104.800112,2026,,,,6235330918,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235330918
+Black-tailed prairie dog,Cynomys ludovicianus,40.068566,-105.289245,2026,,,,6235332748,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235332748
+Black-tailed prairie dog,Cynomys ludovicianus,39.875021,-105.132199,2026,,,,6235340433,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235340433
+Black-tailed prairie dog,Cynomys ludovicianus,39.387725,-104.795595,2026,,,,6235450752,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235450752
+Black-tailed prairie dog,Cynomys ludovicianus,39.602937,-105.082794,2026,,,,6235461922,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235461922
+Black-tailed prairie dog,Cynomys ludovicianus,38.685667,-104.593453,2026,,,,6235517698,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235517698
+Black-tailed prairie dog,Cynomys ludovicianus,40.543797,-105.13748,2026,,,,6235657395,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235657395
+Black-tailed prairie dog,Cynomys ludovicianus,40.546147,-105.138503,2026,,,,6235820540,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235820540
+Black-tailed prairie dog,Cynomys ludovicianus,39.91075,-105.034047,2026,,,,6235853051,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235853051
+Black-tailed prairie dog,Cynomys ludovicianus,40.026414,-105.23883,2026,,,,6235963013,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6235963013
+Black-tailed prairie dog,Cynomys ludovicianus,38.910833,-104.47233,2026,,,,6236006997,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6236006997
+Black-tailed prairie dog,Cynomys ludovicianus,39.682722,-104.800188,2026,,,,6236075313,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6236075313
+Black-tailed prairie dog,Cynomys ludovicianus,39.584197,-104.716675,2026,,,,6236103366,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6236103366
+Black-tailed prairie dog,Cynomys ludovicianus,39.846353,-104.865555,2026,,,,6236107701,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6236107701
+Black-tailed prairie dog,Cynomys ludovicianus,39.387763,-104.798033,2026,,,,6236214100,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6236214100
+Black-tailed prairie dog,Cynomys ludovicianus,40.336548,-104.981997,2026,,,,6236307535,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6236307535
+Black-tailed prairie dog,Cynomys ludovicianus,40.402257,-105.031141,2026,,,,6236327401,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6236327401
+Black-tailed prairie dog,Cynomys ludovicianus,39.812774,-104.841628,2026,,,,6236353804,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6236353804
+Black-tailed prairie dog,Cynomys ludovicianus,39.886239,-105.066475,2026,,,,6236379362,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6236379362
+Black-tailed prairie dog,Cynomys ludovicianus,39.861618,-105.105895,2026,,,,6251641153,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6251641153
+Black-tailed prairie dog,Cynomys ludovicianus,39.547226,-105.089472,2026,,,,6251652816,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6251652816
+Black-tailed prairie dog,Cynomys ludovicianus,39.658435,-104.731385,2026,,,,6251660772,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6251660772
+Black-tailed prairie dog,Cynomys ludovicianus,40.059672,-105.263206,2026,,,,6251874784,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6251874784
+Black-tailed prairie dog,Cynomys ludovicianus,39.861558,-105.105911,2026,,,,6251998380,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6251998380
+Black-tailed prairie dog,Cynomys ludovicianus,38.592845,-104.472549,2026,,,,6252066035,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6252066035
+Black-tailed prairie dog,Cynomys ludovicianus,40.513223,-105.098376,2026,,,,6252152613,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6252152613
+Black-tailed prairie dog,Cynomys ludovicianus,40.392819,-105.134117,2026,,,,6252202789,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6252202789
+Black-tailed prairie dog,Cynomys ludovicianus,40.012087,-105.133436,2026,,,,6252221303,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6252221303
+Black-tailed prairie dog,Cynomys ludovicianus,40.250681,-105.216809,2026,,,,6252445900,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6252445900
+Black-tailed prairie dog,Cynomys ludovicianus,39.93457,-105.043642,2026,,,,6252504946,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6252504946
+Black-tailed prairie dog,Cynomys ludovicianus,39.868745,-104.77211,2026,,,,6252549216,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6252549216
+Black-tailed prairie dog,Cynomys ludovicianus,39.600712,-104.672203,2026,,,,6252843820,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6252843820
+Black-tailed prairie dog,Cynomys ludovicianus,40.457645,-105.133678,2026,,,,6252850737,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6252850737
+Black-tailed prairie dog,Cynomys ludovicianus,39.810548,-105.205529,2026,,,,6252866866,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6252866866
+Black-tailed prairie dog,Cynomys ludovicianus,39.867058,-105.194537,2026,,,,6252883643,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6252883643
+Black-tailed prairie dog,Cynomys ludovicianus,38.57695,-104.46048,2026,,,,6252942570,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6252942570
+Black-tailed prairie dog,Cynomys ludovicianus,40.189168,-105.231175,2026,,,,6252943732,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6252943732
+Black-tailed prairie dog,Cynomys ludovicianus,39.606536,-104.680832,2026,,,,6253040353,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6253040353
+Black-tailed prairie dog,Cynomys ludovicianus,39.873158,-105.129234,2026,,,,6253119234,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6253119234
+Black-tailed prairie dog,Cynomys ludovicianus,40.05208,-105.145171,2026,,,,6253136494,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6253136494
+Black-tailed prairie dog,Cynomys ludovicianus,40.385661,-105.100992,2026,,,,6253196197,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6253196197
+Black-tailed prairie dog,Cynomys ludovicianus,40.453755,-105.093656,2026,,,,6253204515,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6253204515
+Black-tailed prairie dog,Cynomys ludovicianus,39.682736,-104.800198,2026,,,,6253351431,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6253351431
+Black-tailed prairie dog,Cynomys ludovicianus,39.926967,-105.001104,2026,,,,6273732657,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6273732657
+Black-tailed prairie dog,Cynomys ludovicianus,38.270256,-102.618225,2026,,,,6273987033,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6273987033
+Black-tailed prairie dog,Cynomys ludovicianus,39.612305,-104.832558,2026,,,,6320115032,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6320115032
+Black-tailed prairie dog,Cynomys ludovicianus,40.390049,-105.134774,2026,,,,6320129617,HUMAN_OBSERVATION,GBIF occurrence record,https://www.gbif.org/occurrence/6320129617
