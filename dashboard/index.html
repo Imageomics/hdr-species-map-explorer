@@ -128,6 +128,36 @@
       padding: 0.15rem;
     }
     .species-chip button:hover { color: var(--clay); }
+    .species-chip .chip-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      align-items: center;
+    }
+    .species-chip .chip-btn {
+      font: inherit;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.2rem 0.4rem;
+      border-radius: 2px;
+      border: 1px solid rgba(28, 36, 25, 0.18);
+      background: rgba(255,255,255,0.7);
+      color: rgba(28, 36, 25, 0.75);
+      cursor: pointer;
+      line-height: 1.2;
+    }
+    .species-chip .chip-btn:hover {
+      color: var(--ink);
+      border-color: rgba(28, 36, 25, 0.35);
+      background: #fff;
+    }
+    .species-chip button.chip-remove {
+      font-size: 1rem;
+      padding: 0.15rem 0.25rem;
+      border: none;
+      background: transparent;
+    }
     .add-row { display: flex; gap: 0.35rem; margin-top: 0.35rem; }
     .add-row input { flex: 1; }
     .btn {
@@ -146,6 +176,10 @@
       background: rgba(255,255,255,0.65);
       color: var(--ink);
       border: 1px solid rgba(28, 36, 25, 0.2);
+    }
+    .btn.navy {
+      background: #1e3a5f;
+      color: #f3efe6;
     }
     .btn-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.65rem; }
     .status {
@@ -187,7 +221,40 @@
       font-size: 0.85rem;
       color: rgba(28, 36, 25, 0.8);
     }
-    .legend-item img { height: 22px; width: auto; display: block; }
+    .legend-item a.phylo-link {
+      display: inline-flex;
+      align-items: center;
+      line-height: 0;
+      border-radius: 2px;
+    }
+    .legend-item a.phylo-link:hover .phylo-sil,
+    .species-chip a.phylo-link:hover .phylo-sil {
+      outline: 2px solid var(--sky);
+      outline-offset: 1px;
+    }
+    .phylo-sil {
+      display: inline-block;
+      width: 28px;
+      height: 22px;
+      background-color: currentColor;
+      -webkit-mask-position: center;
+      mask-position: center;
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      flex-shrink: 0;
+    }
+    .species-chip a.phylo-link {
+      display: inline-flex;
+      flex-shrink: 0;
+      color: inherit;
+      text-decoration: none;
+    }
+    .species-chip .phylo-sil {
+      width: 26px;
+      height: 20px;
+    }
     .credit {
       display: block;
       margin-top: 0.35rem;
@@ -238,6 +305,11 @@
       margin: 0.25rem 0 0.5rem;
       display: none;
     }
+    .map-wrap {
+      position: relative;
+      min-height: 320px;
+      height: 100%;
+    }
     #map { height: 100%; min-height: 320px; background: #f3efe6; }
     .leaflet-container { background: #f3efe6; }
     .leaflet-popup-content-wrapper {
@@ -253,9 +325,105 @@
     }
     .popup p { margin: 0.15rem 0; font-size: 0.85rem; line-height: 1.35; }
     .popup a { color: var(--sage); font-weight: 600; word-break: break-all; }
+
+    /* Floating visual properties over the map */
+    .viz-panel {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      z-index: 1000;
+      width: min(300px, calc(100% - 1.5rem));
+      max-height: calc(100% - 1.5rem);
+      display: flex;
+      flex-direction: column;
+      background: rgba(243, 239, 230, 0.96);
+      border: 1px solid rgba(28, 36, 25, 0.14);
+      border-radius: 3px;
+      box-shadow: 0 10px 28px rgba(28, 36, 25, 0.16);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+    .viz-panel > summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 0.65rem 0.8rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+      user-select: none;
+      background: rgba(255,255,255,0.45);
+      border-bottom: 1px solid transparent;
+    }
+    .viz-panel[open] > summary {
+      border-bottom-color: rgba(28, 36, 25, 0.1);
+    }
+    .viz-panel > summary::-webkit-details-marker { display: none; }
+    .viz-panel > summary::before {
+      content: "▸ ";
+      display: inline-block;
+      transition: transform 0.15s ease;
+      color: var(--sky);
+    }
+    .viz-panel[open] > summary::before { transform: rotate(90deg); }
+    .viz-body {
+      overflow: auto;
+      padding: 0.35rem 0.55rem 0.65rem;
+      max-height: min(70vh, 520px);
+    }
+    .viz-specimens {
+      padding: 0.45rem 0.35rem 0.55rem;
+      margin: 0 0 0.15rem;
+      border-bottom: 1px solid rgba(28, 36, 25, 0.1);
+      font-weight: 600;
+    }
+    .viz-section {
+      margin: 0.35rem 0;
+      border: 1px solid rgba(28, 36, 25, 0.1);
+      border-radius: 2px;
+      background: rgba(255,255,255,0.5);
+    }
+    .viz-section > summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 0.5rem 0.6rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(28, 36, 25, 0.78);
+      user-select: none;
+    }
+    .viz-section > summary::-webkit-details-marker { display: none; }
+    .viz-section > summary::before {
+      content: "▸ ";
+      display: inline-block;
+      transition: transform 0.15s ease;
+      color: rgba(28, 36, 25, 0.45);
+    }
+    .viz-section[open] > summary::before { transform: rotate(90deg); }
+    .viz-section-body {
+      padding: 0 0.6rem 0.65rem;
+      border-top: 1px solid rgba(28, 36, 25, 0.08);
+    }
+    .viz-section .note-co { margin-top: 0.45rem; }
+    .viz-section .layers { margin-top: 0.35rem; }
+    .viz-section .legend {
+      margin: 0.25rem 0 0;
+      font-size: 0.72rem;
+    }
+    .viz-section .legend-item {
+      font-size: 0.75rem;
+      margin: 0.15rem 0.35rem 0.15rem 0;
+    }
+    .overlay-block.disabled .layers,
+    .overlay-block.disabled .control-row {
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
     @media (max-width: 780px) {
       .shell { grid-template-columns: 1fr; grid-template-rows: auto 55vh; }
       aside { border-right: none; border-bottom: 1px solid rgba(28,36,25,0.12); max-height: 45vh; }
+      .viz-panel { top: 0.5rem; right: 0.5rem; width: min(280px, calc(100% - 1rem)); }
+      .viz-body { max-height: min(45vh, 360px); }
     }
   </style>
 </head>
@@ -264,7 +432,7 @@
     <aside>
       <h1>Species map explorer</h1>
       <p class="lede">
-        Pick species, then fetch GBIF occurrences worldwide.
+        Add a species to map its GBIF occurrences worldwide.
         Defaults: American pika · black-tailed prairie dog.
       </p>
 
@@ -272,12 +440,8 @@
       <div class="species-list" id="species-list"></div>
       <div class="add-row">
         <input type="text" id="species-add" placeholder="Add species (e.g. Ursus arctos)" />
-        <button type="button" class="btn secondary" id="btn-add-species">Add</button>
-      </div>
-
-      <div class="btn-row">
-        <button type="button" class="btn" id="btn-fetch">Fetch from GBIF</button>
-        <button type="button" class="btn secondary" id="btn-reset">Reset defaults</button>
+        <button type="button" class="btn" id="btn-add-species">Add</button>
+        <button type="button" class="btn navy" id="btn-reset">Reset</button>
       </div>
       <div class="status" id="status" aria-live="polite"></div>
 
@@ -311,33 +475,6 @@
         </div>
       </details>
 
-      <p class="section-label">Color theme</p>
-      <div class="layers" id="theme-layers">
-        <label class="layer"><input type="radio" name="theme" value="default" checked /> <span>Standard</span></label>
-        <label class="layer"><input type="radio" name="theme" value="cb" /> <span>Colorblind-friendly</span></label>
-        <label class="layer"><input type="radio" name="theme" value="hc" /> <span>High contrast</span></label>
-      </div>
-
-      <p class="section-label">Biogeography overlays</p>
-      <p class="note-co" style="display:block">Udvardy (1975) realms, biomes, and provinces — worldwide.</p>
-      <div class="layers" id="udvardy-layers"></div>
-      <div class="control-row">
-        <span>Opacity</span>
-        <input type="range" id="udvardy-opacity" min="0.1" max="0.7" step="0.05" value="0.35" />
-      </div>
-      <div id="udvardy-legend" class="legend"></div>
-
-      <div class="overlay-block" id="overlay-block">
-        <p class="section-label">Environment overlays</p>
-        <p class="note-co" id="note-co">Climate overlays are available when the region filter is set to Colorado.</p>
-        <div class="layers" id="overlay-layers"></div>
-        <div class="control-row">
-          <span>Opacity</span>
-          <input type="range" id="overlay-opacity" min="0.15" max="0.95" step="0.05" value="0.65" />
-        </div>
-        <div id="overlay-legend" class="legend"></div>
-      </div>
-
       <p class="hint">
         <span class="legend-row" id="species-legend"></span>
         <span class="credit">Occurrence data: <a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF</a>
@@ -355,12 +492,64 @@
         </div>
       </div>
     </aside>
-    <div id="map" role="application" aria-label="Species occurrence map"></div>
+
+    <div class="map-wrap">
+      <div id="map" role="application" aria-label="Species occurrence map"></div>
+
+      <details class="viz-panel" id="viz-panel">
+        <summary>Visual properties</summary>
+        <div class="viz-body">
+          <label class="layer viz-specimens">
+            <input type="checkbox" id="show-specimens" />
+            <span>Plot specimens</span>
+          </label>
+
+          <details class="viz-section" open>
+            <summary>Color theme</summary>
+            <div class="viz-section-body">
+              <div class="layers" id="theme-layers">
+                <label class="layer"><input type="radio" name="theme" value="default" checked /> <span>Standard</span></label>
+                <label class="layer"><input type="radio" name="theme" value="cb" /> <span>Colorblind-friendly</span></label>
+                <label class="layer"><input type="radio" name="theme" value="hc" /> <span>High contrast</span></label>
+              </div>
+            </div>
+          </details>
+
+          <details class="viz-section">
+            <summary>Biogeography</summary>
+            <div class="viz-section-body">
+              <p class="note-co" style="display:block">Udvardy (1975) realms, biomes, and provinces.</p>
+              <div class="layers" id="udvardy-layers"></div>
+              <div class="control-row">
+                <span>Opacity</span>
+                <input type="range" id="udvardy-opacity" min="0.1" max="0.7" step="0.05" value="0.35" />
+              </div>
+              <div id="udvardy-legend" class="legend"></div>
+            </div>
+          </details>
+
+          <details class="viz-section" id="overlay-block">
+            <summary>Environment overlays</summary>
+            <div class="viz-section-body">
+              <p class="note-co" id="note-co">Climate overlays are available when the region filter is set to Colorado.</p>
+              <div class="layers" id="overlay-layers"></div>
+              <div class="control-row">
+                <span>Opacity</span>
+                <input type="range" id="overlay-opacity" min="0.15" max="0.95" step="0.05" value="0.65" />
+              </div>
+              <div id="overlay-legend" class="legend"></div>
+            </div>
+          </details>
+        </div>
+      </details>
+    </div>
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="regions.js"></script>
   <script src="gbif.js"></script>
+  <script src="phylopic.js"></script>
+  <script src="onezoom.js"></script>
   <script src="overlays.js"></script>
   <script src="udvardy.js"></script>
   <script src="locations.js"></script>
@@ -478,6 +667,37 @@
       if (!enabled) setOverlay(null);
     }
 
+    function inatSearchUrl(sp) {
+      const q = encodeURIComponent(sp.scientific || sp.common || "");
+      return `https://www.inaturalist.org/taxa/search?q=${q}`;
+    }
+
+    function wikipediaUrl(sp) {
+      const q = encodeURIComponent(sp.scientific || sp.common || "");
+      return `https://en.wikipedia.org/wiki/Special:Search?search=${q}&go=Go`;
+    }
+
+    async function openOneZoom(sp) {
+      setStatus(`Finding ${sp.common || sp.scientific} on OneZoom…`);
+      try {
+        const hit = window.ONEZOOM_API
+          ? await window.ONEZOOM_API.resolve(sp)
+          : { url: `https://www.onezoom.org/life/@${encodeURIComponent(String(sp.scientific || "").replace(/\s+/g, "_"))}` };
+        window.open(hit.url, "_blank", "noopener,noreferrer");
+        if (hit.ott && hit.name) {
+          const via = hit.matched && hit.matched !== hit.name ? ` (via “${hit.matched}”)` : "";
+          setStatus(`Opened OneZoom at ${hit.name}${via}.`);
+        } else if (hit.ott) {
+          setStatus(`Opened OneZoom (OTT ${hit.ott}).`);
+        } else {
+          setStatus(`Opened OneZoom search pin for ${sp.scientific}.`);
+        }
+      } catch (e) {
+        window.open("https://www.onezoom.org/", "_blank", "noopener,noreferrer");
+        setStatus(e.message || String(e), true);
+      }
+    }
+
     function renderSpeciesList() {
       speciesListEl.innerHTML = "";
       species.forEach((sp, i) => {
@@ -485,23 +705,39 @@
         row.className = "species-chip";
         const color = colorForSpecies(sp);
         row.innerHTML = `
-          <span class="swatch" style="background:${color}"></span>
+          <span class="species-icon" data-role="icon"></span>
           <span class="name">${sp.common || sp.scientific}
             <span class="sci">${sp.scientific} · key ${sp.taxonKey}</span>
           </span>
-          <button type="button" title="Remove" data-i="${i}" aria-label="Remove">×</button>`;
-        row.querySelector("button").addEventListener("click", () => {
+          <span class="chip-actions">
+            <button type="button" class="chip-btn" data-act="inat" title="Open iNaturalist search">iNat</button>
+            <button type="button" class="chip-btn" data-act="wiki" title="Open Wikipedia">Wiki</button>
+            <button type="button" class="chip-btn" data-act="onezoom" title="Open on OneZoom tree of life">OZ</button>
+            <button type="button" class="chip-remove" title="Remove" aria-label="Remove">×</button>
+          </span>`;
+        const iconSlot = row.querySelector('[data-role="icon"]');
+        iconSlot.appendChild(speciesIconEl(sp, color));
+        row.querySelector('[data-act="inat"]').addEventListener("click", () => {
+          window.open(inatSearchUrl(sp), "_blank", "noopener,noreferrer");
+        });
+        row.querySelector('[data-act="wiki"]').addEventListener("click", () => {
+          window.open(wikipediaUrl(sp), "_blank", "noopener,noreferrer");
+        });
+        row.querySelector('[data-act="onezoom"]').addEventListener("click", () => openOneZoom(sp));
+        row.querySelector(".chip-remove").addEventListener("click", () => {
           if (species.length <= 1) {
             setStatus("Keep at least one species.", true);
             return;
           }
-          species.splice(i, 1);
+          const removed = species.splice(i, 1)[0];
+          removePointsForSpecies(removed);
           renderSpeciesList();
-          renderSpeciesLegend();
+          fitToPoints();
         });
         speciesListEl.appendChild(row);
       });
       renderSpeciesLegend();
+      ensurePhyloPics();
     }
 
     function colorForSpecies(sp) {
@@ -514,17 +750,77 @@
       return c.extra[(eidx >= 0 ? eidx : idx) % c.extra.length];
     }
 
+    function circleSwatch(color) {
+      const span = document.createElement("span");
+      span.className = "swatch";
+      span.style.background = color;
+      return span;
+    }
+
+    function speciesIconEl(sp, color) {
+      const phy = sp.phylopic;
+      if (phy && phy.src && phy.pageUrl) {
+        const a = document.createElement("a");
+        a.className = "phylo-link";
+        a.href = phy.pageUrl;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.title = `PhyloPic silhouette${phy.attribution ? ` · ${phy.attribution}` : ""} (opens source page)`;
+        a.setAttribute("aria-label", `PhyloPic page for ${sp.common || sp.scientific}`);
+        const sil = document.createElement("span");
+        sil.className = "phylo-sil";
+        sil.style.color = color;
+        sil.style.webkitMaskImage = `url("${phy.src}")`;
+        sil.style.maskImage = `url("${phy.src}")`;
+        a.appendChild(sil);
+        return a;
+      }
+      return circleSwatch(color);
+    }
+
     function renderSpeciesLegend() {
       const el = document.getElementById("species-legend");
-      el.innerHTML = species.map((sp) => {
-        if (sp.colorKey === "pika") {
-          return `<span class="legend-item"><img id="legend-pika" src="icons/pika_legend_${currentTheme}.png" alt="" /> ${sp.common}</span>`;
-        }
-        if (sp.colorKey === "dog") {
-          return `<span class="legend-item"><img id="legend-dog" src="icons/prairie_dog_legend_${currentTheme}.png" alt="" /> ${sp.common}</span>`;
-        }
-        return `<span class="legend-item"><span class="swatch" style="background:${colorForSpecies(sp)}"></span> ${sp.common || sp.scientific}</span>`;
-      }).join("");
+      el.innerHTML = "";
+      species.forEach((sp) => {
+        const item = document.createElement("span");
+        item.className = "legend-item";
+        item.appendChild(speciesIconEl(sp, colorForSpecies(sp)));
+        item.appendChild(document.createTextNode(" " + (sp.common || sp.scientific)));
+        el.appendChild(item);
+      });
+    }
+
+    async function ensurePhyloPics() {
+      if (!window.PHYLOPIC_API) return;
+      const needing = species.filter((s) => s.phylopic === undefined);
+      if (!needing.length) return;
+      await Promise.all(
+        needing.map(async (sp) => {
+          // Reserve slot so parallel renders don't double-fetch
+          sp.phylopic = null;
+          try {
+            sp.phylopic = await window.PHYLOPIC_API.findSilhouette({
+              scientific: sp.scientific,
+              taxonKey: sp.taxonKey,
+            });
+          } catch {
+            sp.phylopic = null;
+          }
+        })
+      );
+      renderSpeciesListIconsOnly();
+    }
+
+    function renderSpeciesListIconsOnly() {
+      [...speciesListEl.querySelectorAll(".species-chip")].forEach((row, i) => {
+        const sp = species[i];
+        if (!sp) return;
+        const slot = row.querySelector('[data-role="icon"]');
+        if (!slot) return;
+        slot.innerHTML = "";
+        slot.appendChild(speciesIconEl(sp, colorForSpecies(sp)));
+      });
+      renderSpeciesLegend();
     }
 
     // --- Map ---
@@ -539,13 +835,50 @@
       maxZoom: 18,
     }).addTo(map);
 
-    const allPoints = L.layerGroup().addTo(map);
+    // Keep map from stealing scroll/drag while using the overlay panel
+    const vizPanel = document.getElementById("viz-panel");
+    L.DomEvent.disableClickPropagation(vizPanel);
+    L.DomEvent.disableScrollPropagation(vizPanel);
+
+    // Nested accordion: only one visual section open at a time
+    vizPanel.querySelectorAll(".viz-section").forEach((section) => {
+      section.addEventListener("toggle", () => {
+        if (!section.open) return;
+        vizPanel.querySelectorAll(".viz-section").forEach((other) => {
+          if (other !== section) other.open = false;
+        });
+      });
+    });
+
+    const allPoints = L.layerGroup(); // not on map until "Plot specimens" is checked
     const pointMarkers = [];
+    const showSpecimens = document.getElementById("show-specimens");
+
+    function specimensVisible() {
+      return showSpecimens.checked;
+    }
+
+    function syncSpecimenVisibility() {
+      if (specimensVisible()) {
+        if (!map.hasLayer(allPoints)) allPoints.addTo(map);
+        bringPointsFront();
+      } else if (map.hasLayer(allPoints)) {
+        map.removeLayer(allPoints);
+      }
+    }
+
+    showSpecimens.addEventListener("change", () => {
+      syncSpecimenVisibility();
+      if (specimensVisible() && pointMarkers.length) fitToPoints();
+    });
 
     function bringPointsFront() {
       // LayerGroup has no bringToFront — re-add so points sit above overlays
+      if (!specimensVisible()) return;
       if (map.hasLayer(allPoints)) {
         map.removeLayer(allPoints);
+        allPoints.addTo(map);
+      } else {
         allPoints.addTo(map);
       }
     }
@@ -565,7 +898,7 @@
     }
 
     function fitToPoints() {
-      if (!pointMarkers.length) {
+      if (!specimensVisible() || !pointMarkers.length) {
         fitRegion(currentRegion().bbox);
         return;
       }
@@ -577,6 +910,16 @@
     function clearPoints() {
       allPoints.clearLayers();
       pointMarkers.length = 0;
+    }
+
+    function removePointsForSpecies(sp) {
+      for (let i = pointMarkers.length - 1; i >= 0; i--) {
+        const m = pointMarkers[i];
+        if (m._speciesRef === sp || m._speciesRef?.taxonKey === sp.taxonKey) {
+          allPoints.removeLayer(m);
+          pointMarkers.splice(i, 1);
+        }
+      }
     }
 
     function popupFor(rec, sp) {
@@ -897,12 +1240,111 @@
       });
     });
 
+    // --- GBIF search (runs on add / option change / boot) ---
+    let fetchBusy = false;
+    const addBtn = document.getElementById("btn-add-species");
+    const addInput = document.getElementById("species-add");
+
+    function setFetchBusy(busy) {
+      fetchBusy = busy;
+      addBtn.disabled = busy;
+      addInput.disabled = busy;
+    }
+
+    async function fetchOneSpecies(sp) {
+      const reg = currentRegion();
+      const maxRecords = Number(document.getElementById("sample-size").value) || 1000;
+      const stratifyByCountry = document.getElementById("stratify-country").checked;
+      removePointsForSpecies(sp);
+      const recs = await window.GBIF_API.fetchOccurrences({
+        taxonKey: sp.taxonKey,
+        country: reg.country || undefined,
+        stateProvince: reg.stateProvince || undefined,
+        maxRecords,
+        stratifyByCountry: !reg.country && !reg.stateProvince && stratifyByCountry,
+        onProgress: (n, count, detail) => {
+          const extra = detail ? ` · ${detail}` : "";
+          setStatus(`${sp.common || sp.scientific}: ${n} / ${count || maxRecords}${extra}`);
+        },
+      });
+      addPoints(recs, sp);
+      return recs.length;
+    }
+
+    async function refetchAllSpecies({ fit = true } = {}) {
+      if (fetchBusy) return;
+      setFetchBusy(true);
+      const reg = currentRegion();
+      clearPoints();
+      let total = 0;
+      try {
+        for (const sp of species) {
+          setStatus(`Searching GBIF for ${sp.common || sp.scientific} (${reg.name})…`);
+          total += await fetchOneSpecies(sp);
+        }
+        bringPointsFront();
+        if (fit) fitToPoints();
+        await setupColoradoMask();
+        updateOverlayAvailability();
+        if (reg.isColorado) {
+          const precip = overlayBox.querySelector('input[value="precip"]');
+          if (precip && !activeOverlayId) {
+            precip.checked = true;
+            setOverlay("precip");
+          }
+        }
+        const stratifyByCountry = document.getElementById("stratify-country").checked;
+        const modeNote = stratifyByCountry && reg.mode === "global" ? "stratified by country" : "flat sample";
+        const maxRecords = Number(document.getElementById("sample-size").value) || 1000;
+        setStatus(`Mapped ${total} locations from GBIF (${reg.name}, ${modeNote}, up to ${maxRecords}/species).`);
+      } catch (e) {
+        setStatus(e.message || String(e), true);
+      } finally {
+        setFetchBusy(false);
+      }
+    }
+
+    async function addSpeciesAndSearch() {
+      if (fetchBusy) return;
+      const name = addInput.value.trim();
+      if (!name) return;
+      setFetchBusy(true);
+      setStatus(`Looking up “${name}” in GBIF…`);
+      try {
+        const match = await window.GBIF_API.matchSpecies(name);
+        if (species.some((s) => s.taxonKey === match.taxonKey)) {
+          setStatus(`${match.scientific} is already on the map.`);
+          return;
+        }
+        const sp = {
+          id: `sp_${match.taxonKey}`,
+          common: match.scientific,
+          scientific: match.scientific,
+          taxonKey: match.taxonKey,
+          colorKey: "extra",
+        };
+        species.push(sp);
+        addInput.value = "";
+        renderSpeciesList();
+        setStatus(`Searching GBIF for ${match.scientific}…`);
+        const n = await fetchOneSpecies(sp);
+        bringPointsFront();
+        fitToPoints();
+        setStatus(`Added ${match.scientific}: ${n} locations.`);
+      } catch (e) {
+        setStatus(e.message || String(e), true);
+      } finally {
+        setFetchBusy(false);
+      }
+    }
+
     // --- Actions ---
     regionFilter.addEventListener("change", () => {
       syncRegionControls();
       const reg = currentRegion();
       fitRegion(reg.bbox);
       setupColoradoMask();
+      refetchAllSpecies();
     });
     regionMode.addEventListener("change", () => {
       fillRegionSelect();
@@ -910,32 +1352,23 @@
       const reg = currentRegion();
       fitRegion(reg.bbox);
       setupColoradoMask();
+      if (regionFilter.checked) refetchAllSpecies();
     });
     regionSelect.addEventListener("change", () => {
       updateOverlayAvailability();
       const reg = currentRegion();
       fitRegion(reg.bbox);
       setupColoradoMask();
+      if (regionFilter.checked) refetchAllSpecies();
     });
+    document.getElementById("sample-size").addEventListener("change", () => refetchAllSpecies());
+    document.getElementById("stratify-country").addEventListener("change", () => refetchAllSpecies());
 
-    document.getElementById("btn-add-species").addEventListener("click", async () => {
-      const name = document.getElementById("species-add").value.trim();
-      if (!name) return;
-      setStatus(`Looking up “${name}” in GBIF…`);
-      try {
-        const match = await window.GBIF_API.matchSpecies(name);
-        species.push({
-          id: `sp_${match.taxonKey}`,
-          common: match.scientific,
-          scientific: match.scientific,
-          taxonKey: match.taxonKey,
-          colorKey: "extra",
-        });
-        document.getElementById("species-add").value = "";
-        renderSpeciesList();
-        setStatus(`Added ${match.scientific} (${match.rank}).`);
-      } catch (e) {
-        setStatus(e.message || String(e), true);
+    addBtn.addEventListener("click", addSpeciesAndSearch);
+    addInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        addSpeciesAndSearch();
       }
     });
 
@@ -949,67 +1382,22 @@
       document.getElementById("stratify-country").checked = false;
       species = structuredClone(window.REGIONS.default_species);
       renderSpeciesList();
-      clearPoints();
-      fitRegion(currentRegion().bbox);
-      await setupColoradoMask();
-      setStatus("Defaults restored (global search, 1000 examples/species, pika + prairie dog). Click Fetch from GBIF.");
       setOverlay(null);
       setUdvardy(null);
+      showSpecimens.checked = false;
+      syncSpecimenVisibility();
+      fitRegion(currentRegion().bbox);
+      await refetchAllSpecies();
     });
 
-    document.getElementById("btn-fetch").addEventListener("click", async () => {
-      const btn = document.getElementById("btn-fetch");
-      const reg = currentRegion();
-      const maxRecords = Number(document.getElementById("sample-size").value) || 1000;
-      const stratifyByCountry = document.getElementById("stratify-country").checked;
-      btn.disabled = true;
-      clearPoints();
-      let total = 0;
-      try {
-        for (const sp of species) {
-          setStatus(`Fetching ${sp.common || sp.scientific} (${reg.name})…`);
-          const recs = await window.GBIF_API.fetchOccurrences({
-            taxonKey: sp.taxonKey,
-            country: reg.country || undefined,
-            stateProvince: reg.stateProvince || undefined,
-            maxRecords,
-            stratifyByCountry: !reg.country && !reg.stateProvince && stratifyByCountry,
-            onProgress: (n, count, detail) => {
-              const extra = detail ? ` · ${detail}` : "";
-              setStatus(`${sp.common || sp.scientific}: ${n} / ${count || maxRecords}${extra}`);
-            },
-          });
-          addPoints(recs, sp);
-          total += recs.length;
-        }
-        bringPointsFront();
-        fitToPoints();
-        await setupColoradoMask();
-        updateOverlayAvailability();
-        if (reg.isColorado) {
-          const precip = overlayBox.querySelector('input[value="precip"]');
-          if (precip && !activeOverlayId) {
-            precip.checked = true;
-            setOverlay("precip");
-          }
-        }
-        const modeNote = stratifyByCountry && reg.mode === "global" ? "stratified by country" : "flat sample";
-        setStatus(`Loaded ${total} unique locations from GBIF (${reg.name}, ${modeNote}, up to ${maxRecords}/species).`);
-      } catch (e) {
-        setStatus(e.message || String(e), true);
-      } finally {
-        btn.disabled = false;
-      }
-    });
-
-    // Boot — global by default, no region filter
+    // Boot — load default species from GBIF
     fillRegionSelect();
     regionFilter.checked = false;
     syncRegionControls();
     renderSpeciesList();
     fitRegion(currentRegion().bbox);
     setupColoradoMask();
-    setStatus("Ready. Fetch from GBIF for a worldwide map of the default species (or add your own).");
+    refetchAllSpecies();
   </script>
 </body>
 </html>
