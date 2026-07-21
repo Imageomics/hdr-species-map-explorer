@@ -848,30 +848,59 @@
       if (!enabled) setOverlay(null);
     }
 
+    /**
+     * Resolve via iNaturalist (fuzzy q search). Caches id/slug and the matched
+     * scientific name (inatName) — prefer that for Wiki / OneZoom / PhyloPic.
+     */
     async function resolveiNatTaxon(sp) {
-      if (sp.inatId && sp.inatSlug) {
-        return { id: sp.inatId, slug: sp.inatSlug };
+      if (sp.inatId && sp.inatSlug && sp.inatName) {
+        return { id: sp.inatId, slug: sp.inatSlug, name: sp.inatName };
       }
       const queries = [sp.scientific, sp.common].filter(Boolean);
       for (const q of queries) {
         const url = new URL("https://api.inaturalist.org/v1/taxa");
         url.searchParams.set("q", q);
-        url.searchParams.set("per_page", "5");
+        url.searchParams.set("is_active", "true");
+        url.searchParams.set("per_page", "8");
         const r = await fetch(url);
         if (!r.ok) continue;
         const results = (await r.json()).results || [];
+        if (!results.length) continue;
+        const qNorm = String(q || "").toLowerCase();
         const sciNorm = String(sp.scientific || "").toLowerCase();
+        const nameEq = (t, n) => String(t.name || "").toLowerCase() === n;
         const hit =
-          results.find((t) => String(t.name || "").toLowerCase() === sciNorm) ||
+          results.find((t) => nameEq(t, sciNorm)) ||
+          results.find((t) => nameEq(t, qNorm)) ||
+          results.find(
+            (t) =>
+              t.rank === "species" &&
+              String(t.matched_term || "").toLowerCase() === qNorm
+          ) ||
           results.find((t) => t.rank === "species") ||
           results[0];
         if (!hit || !hit.id) continue;
-        const slug = String(hit.name || sp.scientific || "taxon").replace(/\s+/g, "-");
+        const name = String(hit.name || "").trim();
+        const slug = (name || sp.scientific || "taxon").replace(/\s+/g, "-");
         sp.inatId = hit.id;
         sp.inatSlug = slug;
-        return { id: hit.id, slug };
+        if (name) sp.inatName = name;
+        return { id: hit.id, slug, name: sp.inatName || name };
       }
       return null;
+    }
+
+    function preferredScientific(sp) {
+      return sp.inatName || sp.scientific || sp.common || "";
+    }
+
+    async function ensurePreferredScientific(sp) {
+      try {
+        await resolveiNatTaxon(sp);
+      } catch {
+        /* keep GBIF name */
+      }
+      return preferredScientific(sp);
     }
 
     function licensePreferScore(code) {
@@ -935,17 +964,31 @@
       window.open(`https://www.inaturalist.org/taxa/search?q=${q}`, "_blank", "noopener,noreferrer");
     }
 
-    function wikipediaUrl(sp) {
-      const q = encodeURIComponent(sp.scientific || sp.common || "");
+    function wikipediaUrl(scientificOrSp) {
+      const name =
+        typeof scientificOrSp === "string"
+          ? scientificOrSp
+          : preferredScientific(scientificOrSp);
+      const q = encodeURIComponent(name || "");
       return `https://en.wikipedia.org/wiki/Special:Search?search=${q}&go=Go`;
+    }
+
+    async function openWikipedia(sp) {
+      const name = await ensurePreferredScientific(sp);
+      window.open(wikipediaUrl(name), "_blank", "noopener,noreferrer");
     }
 
     async function openOneZoom(sp) {
       setStatus(`Finding ${sp.common || sp.scientific} on OneZoom…`);
       try {
+        await ensurePreferredScientific(sp);
         const hit = window.ONEZOOM_API
           ? await window.ONEZOOM_API.resolve(sp)
-          : { url: `https://www.onezoom.org/life/@${encodeURIComponent(String(sp.scientific || "").replace(/\s+/g, "_"))}` };
+          : {
+              url: `https://www.onezoom.org/life/@${encodeURIComponent(
+                String(preferredScientific(sp) || "").replace(/\s+/g, "_")
+              )}`,
+            };
         window.open(hit.url, "_blank", "noopener,noreferrer");
         if (hit.ott && hit.name) {
           const via = hit.matched && hit.matched !== hit.name ? ` (via “${hit.matched}”)` : "";
@@ -953,7 +996,7 @@
         } else if (hit.ott) {
           setStatus(`Opened OneZoom (OTT ${hit.ott}).`);
         } else {
-          setStatus(`Opened OneZoom search pin for ${sp.scientific}.`);
+          setStatus(`Opened OneZoom search pin for ${preferredScientific(sp)}.`);
         }
       } catch (e) {
         window.open("https://www.onezoom.org/", "_blank", "noopener,noreferrer");
@@ -982,9 +1025,7 @@
         const iconSlot = row.querySelector('[data-role="icon"]');
         iconSlot.appendChild(speciesIconEl(sp, color));
         row.querySelector('[data-act="inat"]').addEventListener("click", () => openiNat(sp));
-        row.querySelector('[data-act="wiki"]').addEventListener("click", () => {
-          window.open(wikipediaUrl(sp), "_blank", "noopener,noreferrer");
-        });
+        row.querySelector('[data-act="wiki"]').addEventListener("click", () => openWikipedia(sp));
         row.querySelector('[data-act="onezoom"]').addEventListener("click", () => openOneZoom(sp));
         row.querySelector(".chip-remove").addEventListener("click", () => {
           if (species.length <= 1) {
@@ -1103,8 +1144,11 @@
           // Reserve slot so parallel renders don't double-fetch
           sp.phylopic = null;
           try {
+            await ensurePreferredScientific(sp);
+            const names = [sp.inatName, sp.scientific].filter(Boolean);
             sp.phylopic = await window.PHYLOPIC_API.findSilhouette({
-              scientific: sp.scientific,
+              scientific: preferredScientific(sp),
+              names,
               taxonKey: sp.taxonKey,
             });
           } catch {
