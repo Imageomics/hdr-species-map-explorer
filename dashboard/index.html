@@ -452,13 +452,15 @@
       letter-spacing: normal;
       font-weight: 400;
     }
-    .advanced {
+    .advanced,
+    .about {
       margin-top: 0.75rem;
       border: 1px solid rgba(28, 36, 25, 0.12);
       border-radius: 2px;
       background: rgba(255,255,255,0.35);
     }
-    .advanced > summary {
+    .advanced > summary,
+    .about > summary {
       cursor: pointer;
       list-style: none;
       padding: 0.55rem 0.65rem;
@@ -467,15 +469,38 @@
       color: rgba(28, 36, 25, 0.7);
       user-select: none;
     }
-    .advanced > summary::-webkit-details-marker { display: none; }
-    .advanced > summary::before {
+    .advanced > summary::-webkit-details-marker,
+    .about > summary::-webkit-details-marker { display: none; }
+    .advanced > summary::before,
+    .about > summary::before {
       content: "▸ ";
       display: inline-block;
       transition: transform 0.15s ease;
     }
-    .advanced[open] > summary::before { transform: rotate(90deg); }
-    .advanced-body { padding: 0 0.65rem 0.75rem; }
+    .advanced[open] > summary::before,
+    .about[open] > summary::before { transform: rotate(90deg); }
+    .advanced-body,
+    .about-body { padding: 0 0.65rem 0.75rem; }
     .advanced .section-label { margin-top: 0.55rem; }
+    .about-body {
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: rgba(28, 36, 25, 0.78);
+    }
+    .about-body p { margin: 0.35rem 0 0.55rem; }
+    .about-body h3 {
+      margin: 0.55rem 0 0.25rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(28, 36, 25, 0.55);
+      font-weight: 600;
+    }
+    .about-body ul {
+      margin: 0.2rem 0 0.45rem;
+      padding-left: 1.1rem;
+    }
+    .about-body li { margin: 0.2rem 0; }
 
     .note-co {
       font-size: 0.75rem;
@@ -490,6 +515,10 @@
     }
     #map { height: 100%; min-height: 320px; background: #f3efe6; }
     .leaflet-container { background: #f3efe6; }
+    /* Smooth WorldClim PNG coasts instead of crisp pixel blocks */
+    .leaflet-image-layer {
+      image-rendering: auto;
+    }
     .leaflet-popup-content-wrapper {
       border-radius: 2px;
       font-family: "Source Sans 3", system-ui, sans-serif;
@@ -681,6 +710,24 @@
         </div>
       </details>
 
+      <details class="about">
+        <summary>About the map layers</summary>
+        <div class="about-body">
+          <h3>Environment overlays</h3>
+          <ul>
+            <li><strong>Precipitation &amp; temperature</strong> — WorldClim 2.1 long-term climate normals for <strong>1970–2000</strong> (mean annual values), clipped to land.</li>
+            <li><strong>Greenness / NDVI</strong> — MODIS Terra vegetation index, fixed mid-summer mosaic (<strong>July 2010</strong>) as a long-term-style snapshot.</li>
+            <li><strong>Elevation</strong> — static digital elevation model (no time period).</li>
+          </ul>
+          <h3>Why do temp &amp; precip stop at 2000?</h3>
+          <p>
+            They don’t “run out” of years — WorldClim 2.1’s free global climate layers are published as a fixed
+            <strong>1970–2000</strong> 30-year normal (Fick &amp; Hijmans 2017). That baseline is still the classroom
+            standard for species distribution work. Later decades exist in other products; this map uses the classic WorldClim normal.
+          </p>
+        </div>
+      </details>
+
       <div class="sources">
         <h2>
           Sources
@@ -772,7 +819,7 @@
   <script src="gbif.js?v=20260721f"></script>
   <script src="phylopic.js?v=20260721f"></script>
   <script src="onezoom.js?v=20260721f"></script>
-  <script src="overlays.js?v=20260721g"></script>
+  <script src="overlays.js?v=20260721i"></script>
   <script src="elevation.js?v=20260721f"></script>
   <script src="udvardy.js?v=20260721f"></script>
   <script src="locations.js?v=20260721f"></script>
@@ -1662,19 +1709,19 @@
         })
       : null;
 
-    // NASA GIBS MODIS Terra monthly NDVI (greenness); fixed mid-summer mosaic
+    // NASA GIBS MODIS Terra NDVI — fixed mid-summer mosaic (cleaner ocean mask than Landsat tiles)
     const ndviMeta = {
       id: GLOBAL_NDVI_ID,
       label: "Greenness / NDVI (global)",
       vmin: "low",
       vmax: "high",
       units: "vegetation index",
-      period: "MODIS monthly · Jul 2023",
+      period: "MODIS Terra · Jul 2010",
       source_name: "NASA GIBS / MODIS",
       source_url: "https://nasa.gov/gibs",
     };
     const globalNdviLayer = L.tileLayer(
-      "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_L3_NDVI_Monthly/default/2023-07-01/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png",
+      "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_L3_NDVI_Monthly/default/2010-07-01/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png",
       {
         attribution: "NDVI &copy; NASA GIBS / MODIS",
         maxNativeZoom: 7,
@@ -1687,8 +1734,8 @@
     const imageOverlayMetas = window.OVERLAY_LAYERS || [];
 
     function overlayUrl(meta, theme) {
-      if (meta.files && meta.files[theme]) return meta.files[theme];
-      return meta.file;
+      const base = meta.files && meta.files[theme] ? meta.files[theme] : meta.file;
+      return `${base}?v=20260721i`;
     }
 
     function clearActiveOverlayLayers() {

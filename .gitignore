@@ -17,6 +17,7 @@ Thumbs.db
 # Large intermediate / cache (keep processed + dashboard assets)
 data/raw/elev/
 data/raw/prism/
+dashboard/_tmp_wc/
 *.tif
 *.tiff
 *.zip
