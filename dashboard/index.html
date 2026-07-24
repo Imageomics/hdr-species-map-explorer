@@ -217,6 +217,36 @@
     .color-palette-btn[aria-expanded="true"] {
       color: var(--ink);
     }
+    .color-vis-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      padding: 0;
+      border: none;
+      border-radius: 2px;
+      background: transparent;
+      color: rgba(28, 36, 25, 0.55);
+      cursor: pointer;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .color-vis-btn:hover { color: var(--ink); }
+    .color-vis-btn[aria-pressed="false"] {
+      color: rgba(28, 36, 25, 0.35);
+    }
+    .color-vis-btn svg {
+      width: 14px;
+      height: 14px;
+      display: block;
+    }
+    .color-species-row.is-plot-hidden {
+      opacity: 0.42;
+    }
+    .color-species-row.is-plot-hidden .color-palette-popover {
+      opacity: 1;
+    }
     .color-palette-btn .caret {
       display: inline-block;
       transition: transform 0.12s ease;
@@ -230,9 +260,83 @@
       padding: 0.55rem 0.6rem;
       border: 1px solid rgba(28, 36, 25, 0.14);
       border-radius: 2px;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.95);
     }
     .color-palette-popover[hidden] { display: none !important; }
+    .color-sil-slot { cursor: pointer; }
+    .udvardy-color-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: 0.25rem;
+    }
+    .udvardy-color-filter {
+      width: 100%;
+      font: inherit;
+      font-size: 0.8rem;
+      padding: 0.3rem 0.45rem;
+      border: 1px solid rgba(28, 36, 25, 0.18);
+      border-radius: 2px;
+      background: #fff;
+      color: var(--ink);
+    }
+    .udvardy-color-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .udvardy-color-list.is-scrollable {
+      max-height: none;
+      overflow: visible;
+      padding-right: 0;
+    }
+    .udvardy-realm-group {
+      border-bottom: 1px solid rgba(28, 36, 25, 0.08);
+    }
+    .udvardy-realm-group:last-child { border-bottom: none; }
+    .udvardy-realm-group > summary {
+      cursor: pointer;
+      list-style: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.35rem 0;
+      color: rgba(28, 36, 25, 0.72);
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .udvardy-realm-group > summary::-webkit-details-marker { display: none; }
+    .udvardy-realm-group > summary::before {
+      content: "▸";
+      display: inline-block;
+      width: 0.9rem;
+      flex-shrink: 0;
+      color: rgba(28, 36, 25, 0.45);
+      font-weight: 600;
+    }
+    .udvardy-realm-group[open] > summary::before { content: "▾"; }
+    .udvardy-group-label {
+      flex: 1;
+      min-width: 0;
+      line-height: 1.25;
+    }
+    .udvardy-realm-group.is-plot-hidden > summary {
+      opacity: 0.55;
+    }
+    .udvardy-realm-group .color-species-row {
+      padding-left: 0.15rem;
+    }
+    .udvardy-realm-count {
+      font-weight: 500;
+      color: rgba(28, 36, 25, 0.45);
+    }
+    .color-row-sub {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: rgba(28, 36, 25, 0.5);
+      line-height: 1.2;
+    }
     .color-fields {
       display: flex;
       flex-direction: column;
@@ -932,7 +1036,7 @@
           <details class="viz-section" open>
             <summary>Species colors</summary>
             <div class="viz-section-body">
-              <p class="note-co" style="display:block">Defaults match the standard map palette. Open the caret to change a color.</p>
+              <p class="note-co" style="display:block">Defaults match the standard map palette. Use the eye to hide a species from the map; open the caret to change a color.</p>
               <div class="color-species-list" id="color-species-list"></div>
             </div>
           </details>
@@ -940,7 +1044,7 @@
           <details class="viz-section">
             <summary>Biogeography</summary>
             <div class="viz-section-body">
-              <p class="note-co" style="display:block">Udvardy (1975) realms, biomes, and provinces.</p>
+              <p class="note-co" style="display:block">Udvardy (1975) realms, biomes, and provinces. Colors are editable below once a layer is on.</p>
               <div class="layers" id="udvardy-layers"></div>
               <div class="control-row">
                 <span>Opacity</span>
@@ -1463,213 +1567,323 @@
 
     const colorSpeciesListEl = document.getElementById("color-species-list");
     let openColorPickerKey = null;
+    const COLOR_EYE_OPEN = `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 5c-5 0-9.3 3.1-11 7 1.7 3.9 6 7 11 7s9.3-3.1 11-7c-1.7-3.9-6-7-11-7zm0 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>`;
+    const COLOR_EYE_OFF = `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.3 2.1 2 3.4l3.1 3.1C3.1 8 1.5 9.8.9 12c1.7 3.9 6 7 11.1 7 1.8 0 3.5-.4 5-1.1l2.6 2.6 1.3-1.3L3.3 2.1zM12 17c-3.7 0-6.9-2-8.6-5 .7-1.3 1.8-2.5 3.1-3.3l1.7 1.7A5 5 0 0 0 12 17zm0-10c3.7 0 6.9 2 8.6 5-.5.9-1.2 1.8-2 2.5l1.5 1.5c1.2-1.1 2.1-2.5 2.6-4-1.7-3.9-6-7-11.1-7-1.1 0-2.1.2-3.1.5l1.6 1.6c.5-.1 1-.1 1.5-.1z"/></svg>`;
+
+    function closeColorPopovers(root, exceptId) {
+      const scope = root || document;
+      scope.querySelectorAll(".color-palette-popover").forEach((el) => {
+        if (exceptId && el.id === `color-pop-${exceptId}`) return;
+        el.hidden = true;
+      });
+      scope.querySelectorAll(".color-palette-btn").forEach((btn) => {
+        if (exceptId && btn.getAttribute("aria-controls") === `color-pop-${exceptId}`) return;
+        btn.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    /**
+     * Mount a row with optional eye toggle + caret → hue/sat wheel + brightness + hex/RGB.
+     * opts: { id, label, subtitle?, getColor, setColor, updateLeading?, onAfterChange?, leading?,
+     *         getVisible?, setVisible? }
+     */
+    function mountColorPickerRow(parent, opts) {
+      const {
+        id,
+        label,
+        subtitle = "",
+        getColor,
+        setColor,
+        updateLeading = null,
+        onAfterChange = null,
+        leading = null,
+        getVisible = null,
+        setVisible = null,
+      } = opts;
+      const color = getColor();
+      const rgb = hexToRgb(color) || { r: 136, g: 136, b: 136 };
+      const row = document.createElement("div");
+      row.className = "color-species-row";
+      row.dataset.colorId = id;
+
+      let leadingEl = leading;
+      if (!leadingEl) {
+        leadingEl = document.createElement("span");
+        leadingEl.className = "color-sil-slot";
+        leadingEl.appendChild(circleSwatch(color));
+      }
+
+      const nameEl = document.createElement("div");
+      nameEl.className = "color-species-name";
+      nameEl.appendChild(document.createTextNode(label));
+      if (subtitle) {
+        const sub = document.createElement("span");
+        sub.className = "color-row-sub";
+        sub.textContent = subtitle;
+        nameEl.appendChild(sub);
+      }
+
+      const EYE_OPEN = COLOR_EYE_OPEN;
+      const EYE_OFF = COLOR_EYE_OFF;
+
+      let visBtn = null;
+      const syncVisUi = () => {
+        if (!getVisible || !visBtn) return;
+        const shown = getVisible() !== false;
+        visBtn.setAttribute("aria-pressed", shown ? "true" : "false");
+        visBtn.title = shown ? `Hide ${label} on the map` : `Show ${label} on the map`;
+        visBtn.setAttribute("aria-label", visBtn.title);
+        visBtn.innerHTML = shown ? EYE_OPEN : EYE_OFF;
+        row.classList.toggle("is-plot-hidden", !shown);
+      };
+
+      if (getVisible && setVisible) {
+        visBtn = document.createElement("button");
+        visBtn.type = "button";
+        visBtn.className = "color-vis-btn";
+        visBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          setVisible(!(getVisible() !== false));
+          syncVisUi();
+        });
+      }
+
+      const paletteBtn = document.createElement("button");
+      paletteBtn.type = "button";
+      paletteBtn.className = "color-palette-btn";
+      paletteBtn.innerHTML = `<span class="caret" aria-hidden="true">▾</span>`;
+      paletteBtn.title = `Edit color for ${label}`;
+      paletteBtn.setAttribute("aria-label", `Open color palette for ${label}`);
+      paletteBtn.setAttribute("aria-expanded", "false");
+      paletteBtn.setAttribute("aria-controls", `color-pop-${id}`);
+
+      const pop = document.createElement("div");
+      pop.className = "color-palette-popover";
+      pop.id = `color-pop-${id}`;
+      pop.hidden = true;
+      pop.innerHTML = `
+        <div class="color-wheel-wrap">
+          <canvas class="color-wheel" width="148" height="148" tabindex="0" role="slider" aria-label="Hue and saturation"></canvas>
+          <span class="color-wheel-cursor" aria-hidden="true"></span>
+        </div>
+        <div class="color-slider-row">
+          <div class="color-slider" data-channel="bright" role="slider" tabindex="0" aria-label="Brightness" aria-valuemin="0" aria-valuemax="100">
+            <span class="color-slider-thumb" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="color-fields">
+          <div class="color-field-row">
+            <label for="hex-${id}">Hex</label>
+            <input class="hex-input" id="hex-${id}" type="text" maxlength="7" value="${color}" spellcheck="false" />
+          </div>
+          <div class="color-field-row">
+            <label>RGB</label>
+            <input class="rgb-r" type="number" min="0" max="255" step="1" value="${rgb.r}" aria-label="Red" />
+            <input class="rgb-g" type="number" min="0" max="255" step="1" value="${rgb.g}" aria-label="Green" />
+            <input class="rgb-b" type="number" min="0" max="255" step="1" value="${rgb.b}" aria-label="Blue" />
+          </div>
+        </div>`;
+
+      const hexInput = pop.querySelector(".hex-input");
+      const rInput = pop.querySelector(".rgb-r");
+      const gInput = pop.querySelector(".rgb-g");
+      const bInput = pop.querySelector(".rgb-b");
+      const wheel = pop.querySelector(".color-wheel");
+      const wheelCursor = pop.querySelector(".color-wheel-cursor");
+      const brightBar = pop.querySelector('.color-slider[data-channel="bright"]');
+      const brightThumb = brightBar.querySelector(".color-slider-thumb");
+      const swatchEl = leadingEl.querySelector(".swatch");
+      let wheelPainted = false;
+
+      const ensureWheel = () => {
+        if (wheelPainted) return;
+        paintHueSatWheel(wheel);
+        wheelPainted = true;
+      };
+
+      const currentHsl = () => hexToHsl(getColor());
+
+      const syncFields = (hex) => {
+        const h = normalizeHex(hex);
+        if (!h) return;
+        const rgbNext = hexToRgb(h);
+        const hsl = hexToHsl(h);
+        hexInput.value = h;
+        if (rgbNext) {
+          rInput.value = rgbNext.r;
+          gInput.value = rgbNext.g;
+          bInput.value = rgbNext.b;
+        }
+        const radius = wheel.width / 2;
+        const angle = ((hsl.h - 90) * Math.PI) / 180;
+        const dist = hsl.s * (radius - 1);
+        wheelCursor.style.left = `${radius + Math.cos(angle) * dist}px`;
+        wheelCursor.style.top = `${radius + Math.sin(angle) * dist}px`;
+        wheelCursor.style.color = h;
+        brightThumb.style.left = `${hsl.l * 100}%`;
+        brightThumb.style.color = h;
+        brightBar.style.background = `linear-gradient(90deg, #000, ${hslToHex(hsl.h, hsl.s, 0.5)}, #fff)`;
+        brightBar.setAttribute("aria-valuenow", String(Math.round(hsl.l * 100)));
+        if (swatchEl) swatchEl.style.background = h;
+        updateLeading?.(h);
+      };
+
+      const applyHex = (hex) => {
+        const h = normalizeHex(hex);
+        if (!h) return false;
+        if (setColor(h) === false) return false;
+        syncFields(h);
+        onAfterChange?.(h);
+        return true;
+      };
+
+      const applyHsl = (next) => {
+        applyHex(hslToHex(next.h, next.s, next.l));
+      };
+
+      const pickFromWheel = (clientX, clientY) => {
+        const rect = wheel.getBoundingClientRect();
+        const radius = rect.width / 2;
+        const dx = clientX - (rect.left + radius);
+        const dy = clientY - (rect.top + radius);
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const sat = Math.max(0, Math.min(1, dist / radius));
+        let hue = (Math.atan2(dy, dx) * 180) / Math.PI + 90;
+        if (hue < 0) hue += 360;
+        const hsl = currentHsl();
+        applyHsl({ h: hue, s: sat, l: hsl.l });
+      };
+
+      let wheelDragging = false;
+      wheel.addEventListener("pointerdown", (e) => {
+        wheelDragging = true;
+        wheel.setPointerCapture?.(e.pointerId);
+        pickFromWheel(e.clientX, e.clientY);
+      });
+      wheel.addEventListener("pointermove", (e) => {
+        if (!wheelDragging) return;
+        pickFromWheel(e.clientX, e.clientY);
+      });
+      const endWheel = () => { wheelDragging = false; };
+      wheel.addEventListener("pointerup", endWheel);
+      wheel.addEventListener("pointercancel", endWheel);
+
+      const pickBright = (clientX) => {
+        const rect = brightBar.getBoundingClientRect();
+        if (!rect.width) return;
+        const t = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+        const hsl = currentHsl();
+        applyHsl({ h: hsl.h, s: hsl.s, l: t });
+      };
+      let brightDragging = false;
+      brightBar.addEventListener("pointerdown", (e) => {
+        brightDragging = true;
+        brightBar.setPointerCapture?.(e.pointerId);
+        pickBright(e.clientX);
+      });
+      brightBar.addEventListener("pointermove", (e) => {
+        if (!brightDragging) return;
+        pickBright(e.clientX);
+      });
+      const endBright = () => { brightDragging = false; };
+      brightBar.addEventListener("pointerup", endBright);
+      brightBar.addEventListener("pointercancel", endBright);
+      brightBar.addEventListener("keydown", (e) => {
+        if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+        e.preventDefault();
+        const hsl = currentHsl();
+        const dir = e.key === "ArrowRight" ? 1 : -1;
+        applyHsl({ h: hsl.h, s: hsl.s, l: Math.max(0, Math.min(1, hsl.l + dir * 0.03)) });
+      });
+
+      const setOpen = (open) => {
+        if (open) {
+          pop.hidden = false;
+          ensureWheel();
+          syncFields(getColor());
+          requestAnimationFrame(() => {
+            pop.scrollIntoView({ block: "nearest", behavior: "smooth" });
+          });
+          openColorPickerKey = id;
+        } else {
+          pop.hidden = true;
+          if (openColorPickerKey === id) openColorPickerKey = null;
+        }
+        paletteBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      };
+
+      const toggleOpen = () => {
+        const willOpen = pop.hidden;
+        closeColorPopovers(document);
+        openColorPickerKey = null;
+        if (willOpen) setOpen(true);
+      };
+
+      paletteBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleOpen();
+      });
+      leadingEl.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleOpen();
+      });
+      nameEl.addEventListener("click", (e) => {
+        if (e.target.closest("a,button")) return;
+        e.preventDefault();
+        e.stopPropagation();
+        toggleOpen();
+      });
+
+      hexInput.addEventListener("change", () => {
+        if (!applyHex(hexInput.value)) hexInput.value = getColor();
+      });
+      const onRgbChange = () => {
+        applyHex(rgbToHex(rInput.value, gInput.value, bInput.value));
+      };
+      [rInput, gInput, bInput].forEach((input) => {
+        input.addEventListener("change", onRgbChange);
+      });
+
+      row.appendChild(leadingEl);
+      row.appendChild(nameEl);
+      if (visBtn) row.appendChild(visBtn);
+      row.appendChild(paletteBtn);
+      row.appendChild(pop);
+      parent.appendChild(row);
+
+      syncFields(color);
+      syncVisUi();
+      if (openColorPickerKey != null && String(openColorPickerKey) === String(id)) setOpen(true);
+      return row;
+    }
 
     function renderColorPanel() {
       if (!colorSpeciesListEl) return;
-      const keepOpen = openColorPickerKey;
       colorSpeciesListEl.innerHTML = "";
       species.forEach((sp) => {
-        const color = colorForSpecies(sp);
-        const rgb = hexToRgb(color) || { r: 136, g: 136, b: 136 };
         const key = String(sp.taxonKey);
-        const row = document.createElement("div");
-        row.className = "color-species-row";
-        row.dataset.taxonKey = key;
-
         const silSlot = document.createElement("span");
         silSlot.className = "color-sil-slot";
-        silSlot.appendChild(speciesIconEl(sp, color, { link: false }));
-
-        const nameEl = document.createElement("div");
-        nameEl.className = "color-species-name";
-        nameEl.textContent = sp.common || sp.scientific;
-
-        const paletteBtn = document.createElement("button");
-        paletteBtn.type = "button";
-        paletteBtn.className = "color-palette-btn";
-        paletteBtn.innerHTML = `<span class="caret" aria-hidden="true">▾</span>`;
-        paletteBtn.title = `Edit color for ${sp.common || sp.scientific}`;
-        paletteBtn.setAttribute(
-          "aria-label",
-          `Open color palette for ${sp.common || sp.scientific}`
-        );
-        paletteBtn.setAttribute("aria-expanded", "false");
-        paletteBtn.setAttribute("aria-controls", `color-pop-${key}`);
-
-        const pop = document.createElement("div");
-        pop.className = "color-palette-popover";
-        pop.id = `color-pop-${key}`;
-        pop.hidden = true;
-        pop.innerHTML = `
-          <div class="color-wheel-wrap">
-            <canvas class="color-wheel" width="148" height="148" tabindex="0" role="slider" aria-label="Hue and saturation"></canvas>
-            <span class="color-wheel-cursor" aria-hidden="true"></span>
-          </div>
-          <div class="color-slider-row">
-            <div class="color-slider" data-channel="bright" role="slider" tabindex="0" aria-label="Brightness" aria-valuemin="0" aria-valuemax="100">
-              <span class="color-slider-thumb" aria-hidden="true"></span>
-            </div>
-          </div>
-          <div class="color-fields">
-            <div class="color-field-row">
-              <label for="hex-${key}">Hex</label>
-              <input class="hex-input" id="hex-${key}" type="text" maxlength="7" value="${color}" spellcheck="false" />
-            </div>
-            <div class="color-field-row">
-              <label>RGB</label>
-              <input class="rgb-r" type="number" min="0" max="255" step="1" value="${rgb.r}" aria-label="Red" />
-              <input class="rgb-g" type="number" min="0" max="255" step="1" value="${rgb.g}" aria-label="Green" />
-              <input class="rgb-b" type="number" min="0" max="255" step="1" value="${rgb.b}" aria-label="Blue" />
-            </div>
-          </div>`;
-
-        const hexInput = pop.querySelector(".hex-input");
-        const rInput = pop.querySelector(".rgb-r");
-        const gInput = pop.querySelector(".rgb-g");
-        const bInput = pop.querySelector(".rgb-b");
-        const wheel = pop.querySelector(".color-wheel");
-        const wheelCursor = pop.querySelector(".color-wheel-cursor");
-        const brightBar = pop.querySelector('.color-slider[data-channel="bright"]');
-        const brightThumb = brightBar.querySelector(".color-slider-thumb");
-
-        paintHueSatWheel(wheel);
-
-        const currentHsl = () => hexToHsl(colorForSpecies(sp));
-
-        const syncFields = (hex) => {
-          const h = normalizeHex(hex);
-          if (!h) return;
-          const rgbNext = hexToRgb(h);
-          const hsl = hexToHsl(h);
-          hexInput.value = h;
-          if (rgbNext) {
-            rInput.value = rgbNext.r;
-            gInput.value = rgbNext.g;
-            bInput.value = rgbNext.b;
-          }
-          const radius = wheel.width / 2;
-          const angle = ((hsl.h - 90) * Math.PI) / 180; // 0° hue at top
-          const dist = hsl.s * (radius - 1);
-          wheelCursor.style.left = `${radius + Math.cos(angle) * dist}px`;
-          wheelCursor.style.top = `${radius + Math.sin(angle) * dist}px`;
-          wheelCursor.style.color = h;
-
-          brightThumb.style.left = `${hsl.l * 100}%`;
-          brightThumb.style.color = h;
-          brightBar.style.background = `linear-gradient(90deg, #000, ${hslToHex(hsl.h, hsl.s, 0.5)}, #fff)`;
-          brightBar.setAttribute("aria-valuenow", String(Math.round(hsl.l * 100)));
-
-          silSlot.innerHTML = "";
-          silSlot.appendChild(speciesIconEl(sp, h, { link: false }));
-        };
-
-        const applyHsl = (next) => {
-          const hex = hslToHex(next.h, next.s, next.l);
-          applySpeciesColor(sp, hex, { refreshList: false });
-          syncFields(hex);
-          refreshSpeciesChipDisplay({ skipColorPanel: true });
-        };
-
-        const pickFromWheel = (clientX, clientY) => {
-          const rect = wheel.getBoundingClientRect();
-          const radius = rect.width / 2;
-          const dx = clientX - (rect.left + radius);
-          const dy = clientY - (rect.top + radius);
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          const sat = Math.max(0, Math.min(1, dist / radius));
-          let hue = (Math.atan2(dy, dx) * 180) / Math.PI + 90; // match canvas orientation
-          if (hue < 0) hue += 360;
-          const hsl = currentHsl();
-          applyHsl({ h: hue, s: sat, l: hsl.l });
-        };
-
-        let wheelDragging = false;
-        wheel.addEventListener("pointerdown", (e) => {
-          wheelDragging = true;
-          wheel.setPointerCapture?.(e.pointerId);
-          pickFromWheel(e.clientX, e.clientY);
+        silSlot.appendChild(speciesIconEl(sp, colorForSpecies(sp), { link: false }));
+        mountColorPickerRow(colorSpeciesListEl, {
+          id: key,
+          label: sp.common || sp.scientific,
+          getColor: () => colorForSpecies(sp),
+          setColor: (hex) => applySpeciesColor(sp, hex, { refreshList: false }),
+          leading: silSlot,
+          updateLeading: (hex) => {
+            silSlot.innerHTML = "";
+            silSlot.appendChild(speciesIconEl(sp, hex, { link: false }));
+          },
+          onAfterChange: () => refreshSpeciesChipDisplay({ skipColorPanel: true }),
+          getVisible: () => speciesPlotVisible(sp),
+          setVisible: (shown) => {
+            sp.plotVisible = shown !== false;
+            syncSpeciesPlotVisibility(sp);
+          },
         });
-        wheel.addEventListener("pointermove", (e) => {
-          if (!wheelDragging) return;
-          pickFromWheel(e.clientX, e.clientY);
-        });
-        const endWheel = () => { wheelDragging = false; };
-        wheel.addEventListener("pointerup", endWheel);
-        wheel.addEventListener("pointercancel", endWheel);
-
-        const pickBright = (clientX) => {
-          const rect = brightBar.getBoundingClientRect();
-          if (!rect.width) return;
-          const t = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-          const hsl = currentHsl();
-          applyHsl({ h: hsl.h, s: hsl.s, l: t });
-        };
-        let brightDragging = false;
-        brightBar.addEventListener("pointerdown", (e) => {
-          brightDragging = true;
-          brightBar.setPointerCapture?.(e.pointerId);
-          pickBright(e.clientX);
-        });
-        brightBar.addEventListener("pointermove", (e) => {
-          if (!brightDragging) return;
-          pickBright(e.clientX);
-        });
-        const endBright = () => { brightDragging = false; };
-        brightBar.addEventListener("pointerup", endBright);
-        brightBar.addEventListener("pointercancel", endBright);
-        brightBar.addEventListener("keydown", (e) => {
-          if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-          e.preventDefault();
-          const hsl = currentHsl();
-          const dir = e.key === "ArrowRight" ? 1 : -1;
-          applyHsl({ h: hsl.h, s: hsl.s, l: Math.max(0, Math.min(1, hsl.l + dir * 0.03)) });
-        });
-
-        const setOpen = (open) => {
-          pop.hidden = !open;
-          paletteBtn.setAttribute("aria-expanded", open ? "true" : "false");
-          if (open) openColorPickerKey = key;
-          else if (openColorPickerKey === key) openColorPickerKey = null;
-        };
-
-        paletteBtn.addEventListener("click", () => {
-          const willOpen = pop.hidden;
-          colorSpeciesListEl.querySelectorAll(".color-palette-popover").forEach((el) => {
-            el.hidden = true;
-          });
-          colorSpeciesListEl.querySelectorAll(".color-palette-btn").forEach((btn) => {
-            btn.setAttribute("aria-expanded", "false");
-          });
-          if (willOpen) setOpen(true);
-          else openColorPickerKey = null;
-        });
-
-        hexInput.addEventListener("change", () => {
-          if (applySpeciesColor(sp, hexInput.value, { refreshList: false })) {
-            syncFields(sp.color);
-            refreshSpeciesChipDisplay({ skipColorPanel: true });
-          } else {
-            hexInput.value = colorForSpecies(sp);
-          }
-        });
-        const onRgbChange = () => {
-          const hex = rgbToHex(rInput.value, gInput.value, bInput.value);
-          applySpeciesColor(sp, hex, { refreshList: false });
-          syncFields(hex);
-          refreshSpeciesChipDisplay({ skipColorPanel: true });
-        };
-        [rInput, gInput, bInput].forEach((input) => {
-          input.addEventListener("change", onRgbChange);
-        });
-
-        row.appendChild(silSlot);
-        row.appendChild(nameEl);
-        row.appendChild(paletteBtn);
-        row.appendChild(pop);
-        colorSpeciesListEl.appendChild(row);
-
-        syncFields(color);
-        if (keepOpen != null && String(keepOpen) === key) setOpen(true);
       });
     }
 
@@ -1834,6 +2048,11 @@
     const vizPanel = document.getElementById("viz-panel");
     L.DomEvent.disableClickPropagation(vizPanel);
     L.DomEvent.disableScrollPropagation(vizPanel);
+    // Leaflet 1.9+ uses pointer events for map drag. Stop them in the bubble
+    // phase (after panel controls handle them) so color-wheel drags work.
+    ["pointerdown", "pointermove", "pointerup", "pointercancel"].forEach((type) => {
+      vizPanel.addEventListener(type, (e) => e.stopPropagation());
+    });
 
     // Nested accordion: only one visual section open at a time
     vizPanel.querySelectorAll(".viz-section").forEach((section) => {
@@ -1851,6 +2070,21 @@
 
     function specimensVisible() {
       return showSpecimens.checked;
+    }
+
+    function speciesPlotVisible(sp) {
+      return !sp || sp.plotVisible !== false;
+    }
+
+    function syncSpeciesPlotVisibility(sp) {
+      const key = Number(sp.taxonKey);
+      const show = speciesPlotVisible(sp);
+      pointMarkers.forEach((m) => {
+        if (Number(m._taxonKey) !== key) return;
+        const onMap = allPoints.hasLayer(m);
+        if (show && !onMap) m.addTo(allPoints);
+        else if (!show && onMap) allPoints.removeLayer(m);
+      });
     }
 
     function syncSpecimenVisibility() {
@@ -1892,11 +2126,15 @@
     }
 
     function fitToPoints() {
-      if (!specimensVisible() || !pointMarkers.length) {
+      const visibleMarkers = pointMarkers.filter((m) => {
+        const sp = getSpecies(m._taxonKey);
+        return speciesPlotVisible(sp) && allPoints.hasLayer(m);
+      });
+      if (!specimensVisible() || !visibleMarkers.length) {
         fitRegion(currentRegion().bbox);
         return;
       }
-      const group = L.featureGroup(pointMarkers);
+      const group = L.featureGroup(visibleMarkers);
       map.setMaxBounds(null);
       map.fitBounds(group.getBounds().pad(0.12), { padding: [24, 24], maxZoom: 8 });
     }
@@ -1985,6 +2223,7 @@
     function addPoints(recs, sp) {
       ensureSpeciesStyle(sp);
       const taxonKey = sp.taxonKey;
+      const show = speciesPlotVisible(sp);
       recs.forEach((rec) => {
         const marker = L.circleMarker([rec.lat, rec.lon], {
           radius: 4,
@@ -1996,7 +2235,7 @@
         marker._taxonKey = taxonKey;
         marker._rec = rec;
         bindHoverStickyPopup(marker, () => popupFor(rec, taxonKey));
-        marker.addTo(allPoints);
+        if (show) marker.addTo(allPoints);
         pointMarkers.push(marker);
       });
     }
@@ -2032,7 +2271,7 @@
           <p><a href="${p.source_url}" target="_blank" rel="noopener">${p.source_name}</a></p>
         </div>`
         );
-        marker.addTo(allPoints);
+        if (speciesPlotVisible(sp)) marker.addTo(allPoints);
         pointMarkers.push(marker);
         n++;
       });
@@ -2061,6 +2300,14 @@
     const udvardyCache = {};
     const udvardyLayers = {};
     let activeUdvardyId = null;
+    const udvardyProvinceColors = Object.create(null);
+    const udvardyHiddenNames = {
+      realms: new Set(),
+      biomes: new Set(),
+      provinces: new Set(),
+    };
+    let udvardyProvinceFilter = "";
+    let udvardyOpenProvinceGroups = new Set();
     const udvardyBox = document.getElementById("udvardy-layers");
     const udvardyOpacity = document.getElementById("udvardy-opacity");
     const udvardyLegend = document.getElementById("udvardy-legend");
@@ -2073,15 +2320,93 @@
       return palette[h % palette.length];
     }
 
-    function colorForUdvardyFeature(meta, props) {
+    function isUdvardyNameHidden(meta, name) {
+      const set = udvardyHiddenNames[meta.id];
+      return !!(set && set.has(name));
+    }
+
+    function setUdvardyNameVisible(meta, name, shown) {
+      const set = udvardyHiddenNames[meta.id] || (udvardyHiddenNames[meta.id] = new Set());
+      if (shown) set.delete(name);
+      else set.add(name);
+      recolorActiveUdvardy();
+    }
+
+    function defaultUdvardyColor(meta, name) {
       const theme = OVERLAY_THEME;
-      const name = props[meta.nameProp] || props.name || "";
       if (meta.colors) {
         const map = meta.colors[theme] || meta.colors.default || {};
         return map[name] || "#888888";
       }
       const palette = (meta.palette && (meta.palette[theme] || meta.palette.default)) || ["#888"];
       return hashColor(name, palette);
+    }
+
+    function colorForUdvardyName(meta, name) {
+      if (meta.id === "provinces" && udvardyProvinceColors[name]) {
+        return udvardyProvinceColors[name];
+      }
+      return defaultUdvardyColor(meta, name);
+    }
+
+    function colorForUdvardyFeature(meta, props) {
+      const name = props[meta.nameProp] || props.name || "";
+      return colorForUdvardyName(meta, name);
+    }
+
+    function udvardyFeatureName(meta, props) {
+      return props[meta.nameProp] || props.name || "";
+    }
+
+    function styleForUdvardyFeature(meta, props, fillOp = Number(udvardyOpacity.value)) {
+      const name = udvardyFeatureName(meta, props);
+      const fill = colorForUdvardyName(meta, name);
+      const hidden = isUdvardyNameHidden(meta, name);
+      return {
+        color: fill,
+        weight: meta.id === "provinces" ? 1.25 : 1.5,
+        opacity: hidden ? 0 : Math.min(1, fillOp + 0.35),
+        fillColor: fill,
+        fillOpacity: hidden ? 0 : fillOp,
+        interactive: !hidden,
+      };
+    }
+
+    function applyUdvardyLayerStyle(featLayer, meta) {
+      const props = featLayer.feature?.properties || {};
+      const style = styleForUdvardyFeature(meta, props);
+      featLayer.setStyle(style);
+      featLayer.options.interactive = style.interactive;
+      if (style.interactive === false) featLayer.closePopup?.();
+      const el = featLayer.getElement?.();
+      if (el) el.style.pointerEvents = style.interactive ? "" : "none";
+    }
+
+    function setUdvardyNamedColor(meta, name, hex) {
+      const h = normalizeHex(hex);
+      if (!h) return false;
+      if (meta.id === "provinces") {
+        udvardyProvinceColors[name] = h;
+      } else if (meta.colors) {
+        const theme = OVERLAY_THEME;
+        if (!meta.colors[theme]) {
+          meta.colors[theme] = { ...(meta.colors.default || {}) };
+        }
+        meta.colors[theme][name] = h;
+      } else {
+        return false;
+      }
+      recolorActiveUdvardy();
+      return true;
+    }
+
+    function recolorActiveUdvardy() {
+      if (!activeUdvardyId || !udvardyLayers[activeUdvardyId]) return;
+      const meta = udvardyMeta.layers.find((l) => l.id === activeUdvardyId);
+      if (!meta) return;
+      udvardyLayers[activeUdvardyId].eachLayer((featLayer) => {
+        applyUdvardyLayerStyle(featLayer, meta);
+      });
     }
 
     function udvardyPopup(meta, props) {
@@ -2095,23 +2420,106 @@
     }
 
     function buildUdvardyLayer(meta, geojson) {
-      const fillOp = Number(udvardyOpacity.value);
       return L.geoJSON(geojson, {
-        style: (feat) => {
-          const fill = colorForUdvardyFeature(meta, feat.properties || {});
-          // Stroke matches fill so shared borders seal micro-gaps from simplification
-          return {
-            color: fill,
-            weight: meta.id === "provinces" ? 1.25 : 1.5,
-            opacity: Math.min(1, fillOp + 0.35),
-            fillColor: fill,
-            fillOpacity: fillOp,
-          };
-        },
+        style: (feat) => styleForUdvardyFeature(meta, feat.properties || {}),
         onEachFeature: (feat, layer) => {
           layer.bindPopup(udvardyPopup(meta, feat.properties || {}));
+          applyUdvardyLayerStyle(layer, meta);
         },
       });
+    }
+
+    function namedEntriesForUdvardy(meta) {
+      const geo = udvardyCache[meta.id];
+      if (meta.id === "provinces" && geo) {
+        const byName = new Map();
+        (geo.features || []).forEach((feat) => {
+          const p = feat.properties || {};
+          const name = p.provname;
+          if (!name || byName.has(name)) return;
+          byName.set(name, {
+            name,
+            realm: p.realmname || "Unknown",
+            biome: p.biome_gen || p.biomename || "",
+          });
+        });
+        return [...byName.values()].sort((a, b) =>
+          a.realm.localeCompare(b.realm) || a.name.localeCompare(b.name)
+        );
+      }
+      const theme = OVERLAY_THEME;
+      const map = (meta.colors && (meta.colors[theme] || meta.colors.default)) || {};
+      const names = new Set(Object.keys(map));
+      if (geo) {
+        (geo.features || []).forEach((feat) => {
+          const n = (feat.properties || {})[meta.nameProp] || feat.properties?.name;
+          if (n) names.add(n);
+        });
+      }
+      return [...names].sort((a, b) => a.localeCompare(b)).map((name) => ({ name }));
+    }
+
+    function mountUdvardyColorRow(listEl, meta, entry) {
+      const safeId = `udv-${meta.id}-${entry.name}`.replace(/[^a-zA-Z0-9_-]/g, "_");
+      mountColorPickerRow(listEl, {
+        id: safeId,
+        label: entry.name,
+        subtitle: entry.biome || entry.realm || "",
+        getColor: () => colorForUdvardyName(meta, entry.name),
+        setColor: (hex) => setUdvardyNamedColor(meta, entry.name, hex),
+        getVisible: () => !isUdvardyNameHidden(meta, entry.name),
+        setVisible: (shown) => setUdvardyNameVisible(meta, entry.name, shown),
+      });
+    }
+
+    function setUdvardyEntriesVisible(meta, entries, shown) {
+      const set = udvardyHiddenNames[meta.id] || (udvardyHiddenNames[meta.id] = new Set());
+      entries.forEach((entry) => {
+        if (shown) set.delete(entry.name);
+        else set.add(entry.name);
+      });
+      recolorActiveUdvardy();
+    }
+
+    function mountUdvardyGroupEye(summary, groupEl, meta, items, groupLabel) {
+      const visBtn = document.createElement("button");
+      visBtn.type = "button";
+      visBtn.className = "color-vis-btn";
+      const sync = () => {
+        const shown = items.every((e) => !isUdvardyNameHidden(meta, e.name));
+        visBtn.setAttribute("aria-pressed", shown ? "true" : "false");
+        visBtn.title = shown
+          ? `Hide all ${groupLabel} provinces on the map`
+          : `Show all ${groupLabel} provinces on the map`;
+        visBtn.setAttribute("aria-label", visBtn.title);
+        visBtn.innerHTML = shown ? COLOR_EYE_OPEN : COLOR_EYE_OFF;
+        groupEl.classList.toggle("is-plot-hidden", !shown);
+      };
+      visBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const shown = items.every((entry) => !isUdvardyNameHidden(meta, entry.name));
+        setUdvardyEntriesVisible(meta, items, !shown);
+        sync();
+        groupEl.querySelectorAll(".color-species-row").forEach((row) => {
+          const btn = row.querySelector(".color-vis-btn");
+          if (!btn) return;
+          const id = row.dataset.colorId || "";
+          const name = items.find((entry) =>
+            `udv-${meta.id}-${entry.name}`.replace(/[^a-zA-Z0-9_-]/g, "_") === id
+          )?.name;
+          if (!name) return;
+          const rowShown = !isUdvardyNameHidden(meta, name);
+          btn.setAttribute("aria-pressed", rowShown ? "true" : "false");
+          btn.innerHTML = rowShown ? COLOR_EYE_OPEN : COLOR_EYE_OFF;
+          btn.title = rowShown ? `Hide ${name} on the map` : `Show ${name} on the map`;
+          btn.setAttribute("aria-label", btn.title);
+          row.classList.toggle("is-plot-hidden", !rowShown);
+        });
+      });
+      summary.appendChild(visBtn);
+      sync();
+      return sync;
     }
 
     function renderUdvardyLegend(meta) {
@@ -2119,19 +2527,114 @@
         udvardyLegend.innerHTML = "";
         return;
       }
-      const theme = OVERLAY_THEME;
-      let items = [];
-      if (meta.colors) {
-        const map = meta.colors[theme] || meta.colors.default || {};
-        items = Object.entries(map).map(([name, color]) =>
-          `<span class="legend-item"><span class="swatch" style="background:${color}"></span>${name}</span>`
-        );
+      const panel = document.createElement("div");
+      panel.className = "udvardy-color-panel";
+
+      const note = document.createElement("p");
+      note.className = "note-co";
+      note.style.display = "block";
+      note.style.margin = "0";
+      note.textContent =
+        meta.id === "provinces"
+          ? "Grouped by realm. Eye on a realm hides all its provinces; expand to hide individuals."
+          : "Use the eye to hide an area on the map; open the caret to change a color.";
+      panel.appendChild(note);
+
+      const entries = namedEntriesForUdvardy(meta);
+      const list = document.createElement("div");
+      list.className = "udvardy-color-list";
+
+      if (meta.id === "provinces") {
+        const filter = document.createElement("input");
+        filter.type = "search";
+        filter.className = "udvardy-color-filter";
+        filter.placeholder = "Filter provinces…";
+        filter.value = udvardyProvinceFilter;
+        filter.setAttribute("aria-label", "Filter provinces");
+        filter.addEventListener("input", () => {
+          udvardyProvinceFilter = filter.value;
+          renderUdvardyLegend(meta);
+          const next = udvardyLegend.querySelector(".udvardy-color-filter");
+          if (next) {
+            next.focus();
+            const len = next.value.length;
+            next.setSelectionRange(len, len);
+          }
+        });
+        panel.appendChild(filter);
+
+        const q = udvardyProvinceFilter.trim().toLowerCase();
+        list.classList.add("is-scrollable");
+
+        if (q) {
+          const matches = entries.filter(
+            (e) =>
+              e.name.toLowerCase().includes(q) ||
+              (e.realm || "").toLowerCase().includes(q) ||
+              (e.biome || "").toLowerCase().includes(q)
+          );
+          if (!matches.length) {
+            const empty = document.createElement("p");
+            empty.className = "note-co";
+            empty.style.display = "block";
+            empty.textContent = "No provinces match.";
+            list.appendChild(empty);
+          } else {
+            matches.forEach((entry) => mountUdvardyColorRow(list, meta, entry));
+          }
+        } else {
+          const byRealm = new Map();
+          entries.forEach((entry) => {
+            const realm = entry.realm || "Unknown";
+            if (!byRealm.has(realm)) byRealm.set(realm, []);
+            byRealm.get(realm).push(entry);
+          });
+          [...byRealm.entries()]
+            .sort((a, b) => a[0].localeCompare(b[0]))
+            .forEach(([realm, items]) => {
+              const group = document.createElement("details");
+              group.className = "udvardy-realm-group";
+              const summary = document.createElement("summary");
+              const label = document.createElement("span");
+              label.className = "udvardy-group-label";
+              label.innerHTML = `${realm} <span class="udvardy-realm-count">(${items.length})</span>`;
+              summary.appendChild(label);
+              mountUdvardyGroupEye(summary, group, meta, items, realm);
+              group.appendChild(summary);
+              const inner = document.createElement("div");
+              group.appendChild(inner);
+              const fillGroup = () => {
+                if (inner.dataset.filled === "1") return;
+                inner.dataset.filled = "1";
+                items.forEach((entry) => mountUdvardyColorRow(inner, meta, entry));
+              };
+              group.addEventListener("toggle", () => {
+                if (group.open) {
+                  udvardyOpenProvinceGroups.add(realm);
+                  fillGroup();
+                } else {
+                  udvardyOpenProvinceGroups.delete(realm);
+                }
+              });
+              if (udvardyOpenProvinceGroups.has(realm)) {
+                group.open = true;
+                fillGroup();
+              }
+              list.appendChild(group);
+            });
+        }
       } else {
-        items = [`<span>${meta.label}: click a polygon for name, biome, and realm.</span>`];
+        entries.forEach((entry) => mountUdvardyColorRow(list, meta, entry));
       }
-      udvardyLegend.innerHTML = `
-        ${items.join("")}
-        <div style="margin-top:0.35rem"><a href="${udvardyMeta.source_url}" target="_blank" rel="noopener">${udvardyMeta.source_name}</a></div>`;
+
+      panel.appendChild(list);
+      const source = document.createElement("div");
+      source.style.marginTop = "0.35rem";
+      source.innerHTML = `<a href="${udvardyMeta.source_url}" target="_blank" rel="noopener">${udvardyMeta.source_name}</a>`;
+      panel.appendChild(source);
+
+      udvardyLegend.innerHTML = "";
+      udvardyLegend.appendChild(panel);
     }
 
     async function setUdvardy(id) {
@@ -2159,6 +2662,7 @@
         udvardyLayers[id] = buildUdvardyLayer(meta, udvardyCache[id]);
         udvardyLayers[id].addTo(map);
         bringPointsFront();
+        if (id !== "provinces") udvardyProvinceFilter = "";
         renderUdvardyLegend(meta);
       } catch (e) {
         setStatus(e.message || String(e), true);
@@ -2197,11 +2701,13 @@
     udvardyNone.querySelector("input").addEventListener("change", () => setUdvardy(null));
 
     udvardyOpacity.addEventListener("input", () => {
-      const fillOp = Number(udvardyOpacity.value);
-      Object.values(udvardyLayers).forEach((layer) => {
-        layer.eachLayer((featLayer) => {
-          featLayer.setStyle({ fillOpacity: fillOp });
-        });
+      recolorActiveUdvardy();
+      // Also refresh inactive cached layers' intended opacity next time they are shown
+      Object.entries(udvardyLayers).forEach(([id, layer]) => {
+        if (id === activeUdvardyId) return;
+        const meta = udvardyMeta.layers.find((l) => l.id === id);
+        if (!meta) return;
+        layer.eachLayer((featLayer) => applyUdvardyLayerStyle(featLayer, meta));
       });
     });
 
