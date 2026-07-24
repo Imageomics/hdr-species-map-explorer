@@ -2479,7 +2479,17 @@
 
     const allPoints = L.layerGroup(); // not on map until "Plot specimens" is checked
     const pointMarkers = [];
+    /** Plot each occurrence on the main world and ±360° copies so Pacific/Asia continuity is visible. */
+    const WORLD_LNG_COPIES = [0, -360, 360];
     const showSpecimens = document.getElementById("show-specimens");
+
+    function isPrimaryOccurrenceMarker(m) {
+      return !m || !m._wrapOffset;
+    }
+
+    function primaryPointMarkers() {
+      return pointMarkers.filter(isPrimaryOccurrenceMarker);
+    }
 
     function specimensVisible() {
       return showSpecimens.checked;
@@ -2539,7 +2549,7 @@
     }
 
     function fitToPoints() {
-      const visibleMarkers = pointMarkers.filter((m) => {
+      const visibleMarkers = primaryPointMarkers().filter((m) => {
         const sp = getSpecies(m._taxonKey);
         return speciesPlotVisible(sp) && allPoints.hasLayer(m);
       });
@@ -2639,7 +2649,7 @@
     function zoomToSpecies(sp) {
       if (!sp) return;
       const key = Number(sp.taxonKey);
-      const markers = pointMarkers.filter((m) => Number(m._taxonKey) === key);
+      const markers = primaryPointMarkers().filter((m) => Number(m._taxonKey) === key);
       if (!markers.length) {
         setStatus(`No mapped points yet for ${sp.common || sp.scientific}.`, true);
         return;
@@ -2744,18 +2754,22 @@
       const taxonKey = sp.taxonKey;
       const show = speciesPlotVisible(sp);
       recs.forEach((rec) => {
-        const marker = L.circleMarker([rec.lat, rec.lon], {
+        const style = {
           radius: 4,
           color: "#1c2419",
           weight: 0.8,
           fillColor: colorForTaxonKey(taxonKey),
           fillOpacity: 0.7,
+        };
+        WORLD_LNG_COPIES.forEach((offset) => {
+          const marker = L.circleMarker([rec.lat, rec.lon + offset], style);
+          marker._taxonKey = taxonKey;
+          marker._rec = rec;
+          marker._wrapOffset = offset;
+          bindHoverStickyPopup(marker, () => popupFor(rec, taxonKey));
+          if (show) marker.addTo(allPoints);
+          pointMarkers.push(marker);
         });
-        marker._taxonKey = taxonKey;
-        marker._rec = rec;
-        bindHoverStickyPopup(marker, () => popupFor(rec, taxonKey));
-        if (show) marker.addTo(allPoints);
-        pointMarkers.push(marker);
       });
     }
 
@@ -2774,24 +2788,26 @@
         if (lon < -109.06 || lon > -102.04 || lat < 36.99 || lat > 41.01) return;
         const sp = bySp[p.organism];
         if (!sp) return;
-        const marker = L.circleMarker([lat, lon], {
+        const style = {
           radius: p.location_type === "occurrence" ? 4 : 5,
           color: "#1c2419",
           weight: 0.8,
           fillColor: colorForTaxonKey(sp.taxonKey),
           fillOpacity: p.location_type === "occurrence" ? 0.55 : 0.9,
-        });
-        marker._taxonKey = sp.taxonKey;
-        bindHoverStickyPopup(
-          marker,
-          `<div class="popup">
+        };
+        const popupHtml = `<div class="popup">
           <h3>${p.label || p.site_id}</h3>
           <p><strong>${p.organism}</strong></p>
           <p><a href="${p.source_url}" target="_blank" rel="noopener">${p.source_name}</a></p>
-        </div>`
-        );
-        if (speciesPlotVisible(sp)) marker.addTo(allPoints);
-        pointMarkers.push(marker);
+        </div>`;
+        WORLD_LNG_COPIES.forEach((offset) => {
+          const marker = L.circleMarker([lat, lon + offset], style);
+          marker._taxonKey = sp.taxonKey;
+          marker._wrapOffset = offset;
+          bindHoverStickyPopup(marker, popupHtml);
+          if (speciesPlotVisible(sp)) marker.addTo(allPoints);
+          pointMarkers.push(marker);
+        });
         n++;
       });
       setStatus(`Showing ${n} default Colorado points (cached). Click “Fetch from GBIF” for a fresh pull.`);
@@ -3492,7 +3508,7 @@
     async function buildExportRows() {
       const index = await loadProvincesIndex();
       const rows = [];
-      pointMarkers.forEach((m) => {
+      primaryPointMarkers().forEach((m) => {
         const sp = getSpecies(m._taxonKey) || {};
         const rec = m._rec || {};
         const lat = rec.lat != null ? rec.lat : m.getLatLng().lat;
@@ -3524,11 +3540,12 @@
     }
 
     async function exportCsv() {
-      if (!pointMarkers.length) {
+      const n = primaryPointMarkers().length;
+      if (!n) {
         setStatus("No specimen locations to export yet. Add species first.", true);
         return;
       }
-      setStatus(`Building CSV with Udvardy biogeography for ${pointMarkers.length} locations…`);
+      setStatus(`Building CSV with Udvardy biogeography for ${n} locations…`);
       try {
         const rows = await buildExportRows();
         const cols = [
@@ -3560,7 +3577,7 @@
 
     function countForSpecies(sp) {
       const key = Number(sp.taxonKey);
-      return pointMarkers.filter((m) => Number(m._taxonKey) === key).length;
+      return primaryPointMarkers().filter((m) => Number(m._taxonKey) === key).length;
     }
 
     function openGallery() {
@@ -3650,7 +3667,7 @@
           });
       });
 
-      const total = pointMarkers.length;
+      const total = primaryPointMarkers().length;
       galleryMeta.textContent = `${species.length} species · ${total} mapped locations · photos via iNaturalist`;
       galleryModal.hidden = false;
     }
