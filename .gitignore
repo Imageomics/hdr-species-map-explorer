@@ -14,9 +14,7 @@ Thumbs.db
 .vscode/
 *.swp
 
-# Large intermediate / cache (keep processed + dashboard assets)
-data/raw/elev/
-data/raw/prism/
+# Local scratch / large intermediates (not part of the app)
 dashboard/_tmp_wc/
 *.tif
 *.tiff
