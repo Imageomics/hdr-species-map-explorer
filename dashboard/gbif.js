@@ -464,7 +464,7 @@
     return out;
   }
 
-  async function fetchPage({ taxonKey, yearMin, offset, limit }) {
+  async function fetchPage({ taxonKey, yearMin, offset, limit, basisOfRecord = null }) {
     const url = new URL(`${GBIF}/occurrence/search`);
     url.searchParams.set("taxonKey", String(taxonKey));
     url.searchParams.set("hasCoordinate", "true");
@@ -473,6 +473,12 @@
     url.searchParams.set("limit", String(Math.min(300, limit)));
     url.searchParams.set("offset", String(offset));
     url.searchParams.set("year", `${yearMin},2030`);
+    const bases = Array.isArray(basisOfRecord)
+      ? basisOfRecord.filter(Boolean)
+      : basisOfRecord
+        ? [basisOfRecord]
+        : [];
+    bases.forEach((b) => url.searchParams.append("basisOfRecord", String(b)));
     return gbifFetchJson(url.toString());
   }
 
@@ -483,15 +489,24 @@
     onProgress,
     onBatch,
     shouldParallelPages,
+    basisOfRecord = null,
   }) {
     const pageSize = 300; // GBIF hard max per request
     const rows = [];
     const seen = new Set();
+    const allowed =
+      Array.isArray(basisOfRecord) && basisOfRecord.length
+        ? new Set(basisOfRecord.map((b) => String(b).toUpperCase()))
+        : null;
 
     function ingestPage(j) {
       const results = j.results || [];
       const batch = [];
       for (const o of results) {
+        if (allowed) {
+          const basis = String(o.basisOfRecord || "").toUpperCase();
+          if (basis && !allowed.has(basis)) continue;
+        }
         const rec = recordFromOccurrence(o);
         if (!rec) continue;
         const k = `${rec.lat.toFixed(5)},${rec.lon.toFixed(5)}`;
@@ -512,6 +527,7 @@
       yearMin,
       offset: 0,
       limit: Math.min(pageSize, maxRecords),
+      basisOfRecord,
     });
     const got = ingestPage(first);
     if (!got || rows.length >= maxRecords) {
@@ -539,7 +555,13 @@
           if (rows.length >= maxRecords) return;
           const need = Math.min(pageSize, target - offset);
           if (need <= 0) return;
-          const j = await fetchPage({ taxonKey, yearMin, offset, limit: need });
+          const j = await fetchPage({
+            taxonKey,
+            yearMin,
+            offset,
+            limit: need,
+            basisOfRecord,
+          });
           if (rows.length < maxRecords) ingestPage(j);
         });
       }
@@ -549,7 +571,13 @@
     let offset = pageSize;
     while (rows.length < maxRecords && offset < target) {
       const need = Math.min(pageSize, target - offset);
-      const j = await fetchPage({ taxonKey, yearMin, offset, limit: need });
+      const j = await fetchPage({
+        taxonKey,
+        yearMin,
+        offset,
+        limit: need,
+        basisOfRecord,
+      });
       const n = ingestPage(j);
       if (!n) break;
       offset += n;
@@ -568,6 +596,7 @@
       yearMin = 2000,
       onProgress,
       onBatch,
+      basisOfRecord = null,
     } = opts;
 
     const capped = Math.max(1, Math.min(5000, Number(maxRecords) || 1000));
@@ -579,6 +608,7 @@
         yearMin,
         onProgress,
         onBatch,
+        basisOfRecord,
         // Only fan out pages when this species is alone — bulk adds of
         // dozens/hundreds already keep the global HTTP slots busy.
         shouldParallelPages: () => activeOccurrenceFetches === 1,
