@@ -8,10 +8,14 @@ cff-version: 1.2.0
 date-released: "2026-07-28"
 identifiers:
   - type: url
-    description: "The GitHub repository URL."
-    value: "https://github.com/Imageomics/hdr-species-map-explorer"
+    description: "The GitHub release URL of tag v1.0.0."
+    value: "https://github.com/Imageomics/hdr-species-map-explorer/releases/tag/v1.0.0"
+  # After tagging v1.0.0, add the commit URL:
+  # - type: url
+  #   description: "The GitHub URL of the commit tagged with v1.0.0."
+  #   value: "https://github.com/Imageomics/hdr-species-map-explorer/tree/<commit-hash>"
 keywords:
-  - Imageomics
+  - imageomics
   - HDR
   - biodiversity
   - education
@@ -19,7 +23,7 @@ keywords:
   - GBIF
   - biogeography
   - species distributions
-license: "MIT"
+license: MIT
 message: "If you find this software helpful in your research or teaching, please cite this software release."
 repository-code: "https://github.com/Imageomics/hdr-species-map-explorer"
 title: "Species Map Explorer"
@@ -29,4 +33,4 @@ contact:
   - family-names: Charpentier
     given-names: Caleb
     email: calebcharpentier00@gmail.com
-# doi: <add the version-agnostic Zenodo DOI after the first release>
+# doi: <version-agnostic Zenodo DOI — add after first release>
