@@ -6,6 +6,10 @@ Classroom web app for exploring species occurrence maps with open biodiversity d
 
 Students can add species by scientific or common name, sample GBIF occurrence points, toggle climate and elevation overlays, browse biogeographic provinces (Udvardy), and explore taxonomic context via iNaturalist, PhyloPic silhouettes, and related links.
 
+<p align="center">
+  <img src="docs/species-map-explorer.png" alt="Species Map Explorer with American pika and black-tailed prairie dog occurrences on a North America map" width="720" />
+</p>
+
 ## Quick start
 
 Serve the static app from `dashboard/` (any static file server works):
