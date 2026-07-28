@@ -30,25 +30,19 @@ If many students load large multi-species queries at once, provider rate limits 
 
 Forking the repo on GitHub and enabling GitHub Pages on your fork is another option if you want a class-specific hosted URL.
 
-## What’s included
-
-- GBIF occurrence sampling with observation-type filters and adjustable sample size
-- WorldClim / elevation / NDVI-style environment overlays
-- Udvardy biogeographic provinces
-- Species list tools (gallery, similar taxa, clade add, tree view)
-- PhyloPic silhouettes with credit and license links
-
 ## Data sources
 
-This app queries and displays third-party open data/services, including:
-
-- [GBIF](https://www.gbif.org/) — occurrence records
-- [iNaturalist](https://www.inaturalist.org/) — taxonomy, photos, and related taxa
+- [GBIF](https://www.gbif.org/) — occurrence points on the map (sample size and observation-type filters)
+- [iNaturalist](https://www.inaturalist.org/) — example photos in the species gallery, plus taxonomy / similar-taxa tools (iNat observations are not plotted as their own map layer)
 - [PhyloPic](https://www.phylopic.org/) — silhouettes (credit and licenses shown in-app)
+- [OneZoom](https://www.onezoom.org/) — tree-of-life view opened from the species list (OZ button)
 - [OpenStreetMap](https://www.openstreetmap.org/copyright) / [CARTO](https://carto.com/attribution/) — basemap tiles
-- [WorldClim](https://www.worldclim.org/), [AWS Terrain](https://registry.opendata.aws/terrain-tiles/), [NASA GIBS](https://nasa-gibs.github.io/gibs-api-docs/) — climate / elevation / NDVI layers where enabled
+- [WorldClim](https://www.worldclim.org/), [AWS Terrain](https://registry.opendata.aws/terrain-tiles/), [NASA GIBS](https://nasa-gibs.github.io/gibs-api-docs/) — climate / elevation / NDVI overlays
+- Udvardy biogeographic provinces (1975) via UNEP-WCMC
 
-**GBIF vs iNaturalist:** map points come from GBIF (which often already includes many iNaturalist observations). Separate iNaturalist API calls are used mainly for example photos, taxonomy browsing, and similar-taxa tools so students can see trait variation — not as a second occurrence layer. Some visual overlap between GBIF points and iNat-sourced records is expected.
+**Possible overlap:** map points come only from GBIF, which often already includes many iNaturalist observations. Gallery images come from iNaturalist separately, so a photo in the gallery may be from an observation that also appears (or could appear) as a GBIF point on the map.
+
+**Wikipedia:** the Wiki button on each species opens an English Wikipedia search for that name in a new tab. The app does not embed or query Wikipedia content otherwise.
 
 Please respect each provider’s terms of use and attribution requirements when reusing outputs.
 
