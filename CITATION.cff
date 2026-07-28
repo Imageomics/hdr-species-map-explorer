@@ -1,0 +1,32 @@
+abstract: "Species Map Explorer is a classroom web app for exploring species occurrence maps with GBIF samples, biogeographic overlays, climate layers, and taxonomic context from iNaturalist, PhyloPic, and related open biodiversity resources."
+authors:
+  - family-names: Charpentier
+    given-names: Caleb
+    email: calebcharpentier00@gmail.com
+    orcid: "https://orcid.org/0000-0002-9787-7081"
+cff-version: 1.2.0
+date-released: "2026-07-28"
+identifiers:
+  - type: url
+    description: "The GitHub repository URL."
+    value: "https://github.com/calcharp/hdr-species-map-explorer"
+keywords:
+  - Imageomics
+  - HDR
+  - biodiversity
+  - education
+  - environmental science
+  - GBIF
+  - biogeography
+  - species distributions
+license: "MIT"
+message: "If you find this software helpful in your research or teaching, please cite this software release."
+repository-code: "https://github.com/calcharp/hdr-species-map-explorer"
+title: "Species Map Explorer"
+version: 1.0.0
+type: software
+contact:
+  - family-names: Charpentier
+    given-names: Caleb
+    email: calebcharpentier00@gmail.com
+# doi: <add the version-agnostic Zenodo DOI after the first release>

@@ -1,0 +1,43 @@
+{
+  "creators": [
+    {
+      "name": "Charpentier, Caleb",
+      "orcid": "0000-0002-9787-7081",
+      "affiliation": "Imageomics Institute"
+    }
+  ],
+  "description": "Species Map Explorer is a classroom web app for exploring species occurrence maps with GBIF samples, biogeographic overlays, climate layers, and taxonomic context from iNaturalist, PhyloPic, and related open biodiversity resources.",
+  "keywords": [
+    "imageomics",
+    "HDR",
+    "biodiversity",
+    "education",
+    "environmental science",
+    "GBIF",
+    "biogeography",
+    "species distributions"
+  ],
+  "title": "Species Map Explorer",
+  "version": "1.0.0",
+  "license": "MIT",
+  "publication_date": "2026-07-28",
+  "grants": [
+    {
+      "id": "021nxhr62::2118240"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/calcharp/hdr-species-map-explorer",
+      "relation": "isSupplementTo",
+      "resource_type": "software",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://calebcharpentier.com/species-map/",
+      "relation": "isDescribedBy",
+      "resource_type": "other",
+      "scheme": "url"
+    }
+  ]
+}
