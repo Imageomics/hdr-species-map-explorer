@@ -56,6 +56,10 @@ After the first Zenodo-archived release, prefer the DOI citation from that recor
 
 This project is released under the [MIT License](LICENSE).
 
+## Contact
+
+Caleb Charpentier · [calebcharpentier.com](https://calebcharpentier.com/) · [calebcharpentier00@gmail.com](mailto:calebcharpentier00@gmail.com)
+
 ## Acknowledgments
 
 This work was supported by the NSF OAC 2118240 award: "HDR Institute: Imageomics: A New Frontier of Biological Information Powered by Knowledge-Guided Machine Learning." Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
