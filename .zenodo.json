@@ -34,7 +34,7 @@
       "scheme": "url"
     },
     {
-      "identifier": "https://calebcharpentier.com/species-map/",
+      "identifier": "https://imageomics.github.io/hdr-species-map-explorer/",
       "relation": "isDescribedBy",
       "resource_type": "other",
       "scheme": "url"

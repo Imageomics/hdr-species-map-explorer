@@ -2,7 +2,7 @@
 
 Classroom web app for exploring species occurrence maps with open biodiversity data.
 
-**Live demo:** [calebcharpentier.com/species-map/](https://calebcharpentier.com/species-map/)
+**Live demo:** [imageomics.github.io/hdr-species-map-explorer](https://imageomics.github.io/hdr-species-map-explorer/)
 
 Students can add species by scientific or common name, sample GBIF occurrence points, toggle climate and elevation overlays, browse biogeographic provinces (Udvardy), and explore taxonomic context via iNaturalist, PhyloPic silhouettes, and related links.
 
