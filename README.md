@@ -32,8 +32,8 @@ This app queries and displays third-party open data/services, including:
 - [GBIF](https://www.gbif.org/) — occurrence records
 - [iNaturalist](https://www.inaturalist.org/) — taxonomy, photos, and related taxa
 - [PhyloPic](https://www.phylopic.org/) — silhouettes (credit and licenses shown in-app)
-- OpenStreetMap / CARTO — basemap tiles
-- WorldClim, AWS Terrain, NASA GIBS — climate / elevation / NDVI layers where enabled
+- [OpenStreetMap](https://www.openstreetmap.org/copyright) / [CARTO](https://carto.com/attribution/) — basemap tiles
+- [WorldClim](https://www.worldclim.org/), [AWS Terrain](https://registry.opendata.aws/terrain-tiles/), [NASA GIBS](https://nasa-gibs.github.io/gibs-api-docs/) — climate / elevation / NDVI layers where enabled
 
 Please respect each provider’s terms of use and attribution requirements when reusing outputs.
 

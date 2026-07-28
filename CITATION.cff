@@ -9,7 +9,7 @@ date-released: "2026-07-28"
 identifiers:
   - type: url
     description: "The GitHub repository URL."
-    value: "https://github.com/calcharp/hdr-species-map-explorer"
+    value: "https://github.com/Imageomics/hdr-species-map-explorer"
 keywords:
   - Imageomics
   - HDR
@@ -21,7 +21,7 @@ keywords:
   - species distributions
 license: "MIT"
 message: "If you find this software helpful in your research or teaching, please cite this software release."
-repository-code: "https://github.com/calcharp/hdr-species-map-explorer"
+repository-code: "https://github.com/Imageomics/hdr-species-map-explorer"
 title: "Species Map Explorer"
 version: 1.0.0
 type: software

@@ -28,7 +28,7 @@
   ],
   "related_identifiers": [
     {
-      "identifier": "https://github.com/calcharp/hdr-species-map-explorer",
+      "identifier": "https://github.com/Imageomics/hdr-species-map-explorer",
       "relation": "isSupplementTo",
       "resource_type": "software",
       "scheme": "url"
