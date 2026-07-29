@@ -49,7 +49,7 @@ Forking the repo on GitHub and enabling GitHub Pages on your fork is another opt
 - [OneZoom](https://www.onezoom.org/) — tree-of-life view opened from the species list (OZ button)
 - [OpenStreetMap](https://www.openstreetmap.org/copyright) / [CARTO](https://carto.com/attribution/) — basemap tiles
 - [WorldClim](https://www.worldclim.org/), [AWS Terrain](https://registry.opendata.aws/terrain-tiles/), [NASA GIBS](https://nasa-gibs.github.io/gibs-api-docs/) — climate / elevation / NDVI overlays
-- Udvardy biogeographic provinces (1975) via UNEP-WCMC
+- [Udvardy biogeographic provinces (1975)](https://data-gis.unep-wcmc.org/server/rest/services/Bio-geographicalRegions/Udvardy_Biogeographical_Provinces_1975/FeatureServer) via UNEP-WCMC
 
 **Possible overlap:** map points come only from GBIF, which often already includes many iNaturalist observations. Gallery images come from iNaturalist separately, so a photo in the gallery may be from an observation that also appears (or could appear) as a GBIF point on the map.
 
