@@ -1296,6 +1296,57 @@
     }
     .about-body li { margin: 0.2rem 0; }
     .help-body a { color: var(--sage); }
+    .cite-block {
+      margin: 0.35rem 0 0.55rem;
+      padding: 0.45rem 0.5rem;
+      border: 1px solid rgba(28, 36, 25, 0.12);
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.55);
+    }
+    .cite-block-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+    .cite-block-head strong {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(28, 36, 25, 0.55);
+      font-weight: 600;
+    }
+    .cite-copy {
+      font: inherit;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.15rem 0.4rem;
+      border-radius: 2px;
+      border: 1px solid rgba(28, 36, 25, 0.18);
+      background: rgba(255, 255, 255, 0.85);
+      color: rgba(28, 36, 25, 0.75);
+      cursor: pointer;
+      line-height: 1.2;
+    }
+    .cite-copy:hover {
+      color: var(--ink);
+      border-color: rgba(28, 36, 25, 0.35);
+      background: #fff;
+    }
+    .cite-bibtex {
+      margin: 0;
+      max-height: 9.5rem;
+      overflow: auto;
+      padding: 0.35rem 0.4rem;
+      font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", Consolas, monospace;
+      font-size: 0.68rem;
+      line-height: 1.4;
+      white-space: pre;
+      color: var(--ink);
+      background: rgba(28, 36, 25, 0.04);
+      border-radius: 2px;
+    }
 
     .note-co {
       font-size: 0.75rem;
@@ -1665,6 +1716,24 @@
             Source code:
             <a href="https://github.com/Imageomics/hdr-species-map-explorer" target="_blank" rel="noopener">github.com/Imageomics/hdr-species-map-explorer</a>
           </p>
+          <p>
+            Cite this software (concept DOI):
+            <a href="https://doi.org/10.5281/zenodo.21681874" target="_blank" rel="noopener">doi:10.5281/zenodo.21681874</a>
+          </p>
+          <div class="cite-block">
+            <div class="cite-block-head">
+              <strong>BibTeX</strong>
+              <button type="button" class="cite-copy" id="btn-copy-bibtex" title="Copy BibTeX citation">Copy</button>
+            </div>
+            <pre class="cite-bibtex" id="cite-bibtex">@software{charpentier_2026_species_map_explorer,
+  author       = {Charpentier, Caleb},
+  title        = {Species Map Explorer},
+  year         = 2026,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.21681874},
+  url          = {https://doi.org/10.5281/zenodo.21681874}
+}</pre>
+          </div>
         </div>
       </details>
 
@@ -1687,7 +1756,8 @@
           <a href="https://www.worldclim.org/" target="_blank" rel="noopener">WorldClim 2.1</a> — global climate normals<br />
           <a href="https://registry.opendata.aws/terrain-tiles/" target="_blank" rel="noopener">AWS Terrain Tiles</a> — global elevation<br />
           <a href="https://nasa-gibs.github.io/gibs-api-docs/" target="_blank" rel="noopener">NASA GIBS</a> — MODIS NDVI greenness<br />
-          <a href="https://github.com/Imageomics/hdr-species-map-explorer" target="_blank" rel="noopener">GitHub</a> — source code &amp; docs
+          <a href="https://github.com/Imageomics/hdr-species-map-explorer" target="_blank" rel="noopener">GitHub</a> — source code &amp; docs<br />
+          <a href="https://doi.org/10.5281/zenodo.21681874" target="_blank" rel="noopener">Zenodo</a> — cite this software (DOI)
         </div>
       </div>
     </aside>
@@ -6279,6 +6349,24 @@
     document.getElementById("btn-clear-species").addEventListener("click", () => clearAllSpecies());
     if (btnStopBulk) btnStopBulk.addEventListener("click", () => stopBulkAdd());
     if (btnStopBulkTree) btnStopBulkTree.addEventListener("click", () => stopBulkAdd());
+
+    const btnCopyBibtex = document.getElementById("btn-copy-bibtex");
+    const citeBibtexEl = document.getElementById("cite-bibtex");
+    if (btnCopyBibtex && citeBibtexEl) {
+      btnCopyBibtex.addEventListener("click", async () => {
+        const text = citeBibtexEl.textContent || "";
+        try {
+          await navigator.clipboard.writeText(text);
+          const prev = btnCopyBibtex.textContent;
+          btnCopyBibtex.textContent = "Copied";
+          setTimeout(() => {
+            btnCopyBibtex.textContent = prev || "Copy";
+          }, 1400);
+        } catch {
+          setStatus("Could not copy BibTeX — select the citation text manually.", true);
+        }
+      });
+    }
 
     document.getElementById("btn-reset").addEventListener("click", async () => {
       document.getElementById("sample-size").value = "1000";

@@ -5,15 +5,21 @@ authors:
     email: calebcharpentier00@gmail.com
     orcid: "https://orcid.org/0000-0002-9787-7081"
 cff-version: 1.2.0
-date-released: "2026-07-28"
+date-released: "2026-07-29"
+doi: 10.5281/zenodo.21681874
 identifiers:
+  - type: doi
+    description: "The concept DOI of the work (all versions)."
+    value: 10.5281/zenodo.21681874
+  - type: doi
+    description: "The version DOI of tag v1.0.0."
+    value: 10.5281/zenodo.21681875
   - type: url
     description: "The GitHub release URL of tag v1.0.0."
     value: "https://github.com/Imageomics/hdr-species-map-explorer/releases/tag/v1.0.0"
-  # After tagging v1.0.0, add the commit URL:
-  # - type: url
-  #   description: "The GitHub URL of the commit tagged with v1.0.0."
-  #   value: "https://github.com/Imageomics/hdr-species-map-explorer/tree/<commit-hash>"
+  - type: url
+    description: "The GitHub URL of the commit tagged with v1.0.0."
+    value: "https://github.com/Imageomics/hdr-species-map-explorer/tree/f321df2cd270143a25fe2f456f0c9f2c85dc2a09"
 keywords:
   - imageomics
   - HDR
@@ -24,7 +30,7 @@ keywords:
   - biogeography
   - species distributions
 license: MIT
-message: "If you find this software helpful in your research or teaching, please cite this software release."
+message: "If you find this software helpful in your research or teaching, please cite this software using the concept DOI."
 repository-code: "https://github.com/Imageomics/hdr-species-map-explorer"
 title: "Species Map Explorer"
 version: 1.0.0
@@ -33,4 +39,3 @@ contact:
   - family-names: Charpentier
     given-names: Caleb
     email: calebcharpentier00@gmail.com
-# doi: <version-agnostic Zenodo DOI — add after first release>
