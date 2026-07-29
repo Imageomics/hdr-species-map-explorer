@@ -59,7 +59,7 @@ Please respect each provider’s terms of use and attribution requirements when 
 
 ## Citation
 
-If you use this software in research or teaching materials, please cite it via the DOI above (or GitHub’s **Cite this repository** button, which reads [`CITATION.cff`](CITATION.cff)). A BibTeX entry is also shown under **Sources** in the app.
+If you use this software in research or teaching materials, please cite it via the DOI above (or GitHub’s **Cite this repository** button, which reads [`CITATION.cff`](CITATION.cff)). The app’s **Sources** footer also has a BibTeX copy button.
 
 ## License
 
