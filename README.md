@@ -10,6 +10,13 @@ Students can add species by scientific or common name, sample GBIF occurrence po
   <img src="docs/species-map-explorer.png" alt="Species Map Explorer with American pika and black-tailed prairie dog occurrences on a North America map" width="720" />
 </p>
 
+## Requirements
+
+This is a static browser app — there is no Python package install or Node build step. See [`requirements.txt`](requirements.txt) for the machine-readable note.
+
+- **To use the live demo:** a modern browser with JavaScript enabled and network access (the app calls GBIF, iNaturalist, and map/overlay tile services directly).
+- **To run locally:** [Python](https://www.python.org/downloads/) 3.8+ is enough to serve `dashboard/` with the stdlib `http.server` (any other static file server also works). Leaflet and fonts are loaded from CDNs.
+
 ## Quick start
 
 Serve the static app from `dashboard/` (any static file server works):

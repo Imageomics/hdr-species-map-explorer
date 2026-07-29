@@ -1,0 +1,12 @@
+# Species Map Explorer is a static HTML/JavaScript web app under dashboard/.
+# There are no pip-installable Python packages required to run it.
+#
+# Optional — local static file server (Python standard library only):
+#   Python >= 3.8
+#   Example:  cd dashboard && python -m http.server 8765 --bind 127.0.0.1
+#
+# Runtime — any modern browser with JavaScript enabled, plus network access
+# to the third-party services listed in README.md (GBIF, iNaturalist, map tiles, etc.).
+#
+# Front-end libraries are loaded from CDNs at runtime (see dashboard/index.html),
+# including Leaflet 1.9.x. No Node/npm build step is required.
