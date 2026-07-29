@@ -9,11 +9,7 @@ date-released: "2026-07-29"
 doi: 10.5281/zenodo.21681874
 identifiers:
   - type: doi
-    description: "The concept DOI of the work (all versions)."
     value: 10.5281/zenodo.21681874
-  - type: doi
-    description: "The version DOI of tag v1.0.0."
-    value: 10.5281/zenodo.21681875
   - type: url
     description: "The GitHub release URL of tag v1.0.0."
     value: "https://github.com/Imageomics/hdr-species-map-explorer/releases/tag/v1.0.0"

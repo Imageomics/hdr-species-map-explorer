@@ -59,15 +59,13 @@ Please respect each provider’s terms of use and attribution requirements when 
 
 ## Citation
 
-If you use this software in research or teaching materials, please cite it.
+If you use this software in research or teaching materials, please cite it:
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21681874.svg)](https://doi.org/10.5281/zenodo.21681874)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21681874-blue)](https://doi.org/10.5281/zenodo.21681874)
 
-Prefer the **concept DOI** (all versions): [https://doi.org/10.5281/zenodo.21681874](https://doi.org/10.5281/zenodo.21681874)
+**DOI:** [https://doi.org/10.5281/zenodo.21681874](https://doi.org/10.5281/zenodo.21681874)
 
-Version DOI for `v1.0.0`: [https://doi.org/10.5281/zenodo.21681875](https://doi.org/10.5281/zenodo.21681875)
-
-GitHub’s **Cite this repository** button also reads [`CITATION.cff`](CITATION.cff). A BibTeX entry is also shown under **Sources** in the app.
+GitHub’s **Cite this repository** button also reads [`CITATION.cff`](CITATION.cff). A BibTeX entry is shown under **Sources** in the app.
 
 ## License
 
