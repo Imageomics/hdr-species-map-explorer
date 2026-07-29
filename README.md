@@ -67,7 +67,7 @@ Prefer the **concept DOI** (all versions): [https://doi.org/10.5281/zenodo.21681
 
 Version DOI for `v1.0.0`: [https://doi.org/10.5281/zenodo.21681875](https://doi.org/10.5281/zenodo.21681875)
 
-GitHub’s **Cite this repository** button also reads [`CITATION.cff`](CITATION.cff). A BibTeX entry is available in the app’s Help panel.
+GitHub’s **Cite this repository** button also reads [`CITATION.cff`](CITATION.cff). A BibTeX entry is also shown under **Sources** in the app.
 
 ## License
 
