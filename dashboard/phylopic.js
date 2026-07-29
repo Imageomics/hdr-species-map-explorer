@@ -8,11 +8,16 @@
  * Resolution order prefers PhyloPic name/genus matches over GBIF ID resolve.
  * Incomplete GBIF lineages often only match Animalia/Metazoa, whose primary
  * image can be an unrelated fossil (e.g. Vaveliksia for a gecko).
+ *
+ * Name/genus hits are sanity-checked against GBIF phylum→family when available,
+ * so taxonomic homonyms (e.g. insect synonym "Petaurista" vs flying squirrels)
+ * do not steal the silhouette.
  */
 window.PHYLOPIC_API = (() => {
   const API = "https://api.phylopic.org";
   const SITE = "https://www.phylopic.org";
   const cache = new Map();
+  const gbifSpeciesCache = new Map();
   let buildPromise = null;
 
   /** Kingdom / domain-level (and a few ultra-broad) PhyloPic nodes — never use their silhouettes. */
@@ -45,7 +50,7 @@ window.PHYLOPIC_API = (() => {
 
   function licenseOk(href) {
     if (!href) return false;
-    const h = String(href).toLowerCase();
+    const h = String(href || "").toLowerCase();
     if (h.includes("publicdomain") || h.includes("/zero/")) return true;
     // CC BY* including NC / ND (we only display + deep-link; attribution via PhyloPic)
     if (/\/licenses\/by(?:-nc)?(?:-nd)?(?:-sa)?\//.test(h)) return true;
@@ -68,6 +73,10 @@ window.PHYLOPIC_API = (() => {
       }
     }
     return out;
+  }
+
+  function nodeTitle(node) {
+    return normalizeName(node && node._links && node._links.self && node._links.self.title);
   }
 
   function isCoarseNode(node) {
@@ -203,6 +212,103 @@ window.PHYLOPIC_API = (() => {
     return null;
   }
 
+  async function fetchGbifSpecies(taxonKey) {
+    if (!taxonKey) return null;
+    const key = String(taxonKey);
+    if (gbifSpeciesCache.has(key)) return gbifSpeciesCache.get(key);
+    const pending = (async () => {
+      try {
+        const r = await fetch(`https://api.gbif.org/v1/species/${key}`);
+        if (!r.ok) return null;
+        return await r.json();
+      } catch {
+        return null;
+      }
+    })();
+    gbifSpeciesCache.set(key, pending);
+    return pending;
+  }
+
+  /**
+   * Mid-rank GBIF names used to sanity-check PhyloPic name/genus hits.
+   * Prefer phylum→family (not genus): genus alone can match a homonym node's title.
+   * Kingdom is too coarse.
+   */
+  function anchorsFromGbif(sp) {
+    const anchors = new Set();
+    if (!sp) return anchors;
+    for (const field of ["phylum", "class", "order", "family"]) {
+      const n = normalizeName(sp[field]);
+      if (n) anchors.add(n);
+    }
+    return anchors;
+  }
+
+  async function nodeLineageNames(nodeUuid, build) {
+    const names = new Set();
+    if (!nodeUuid) return names;
+    try {
+      const url = new URL(`${API}/nodes/${nodeUuid}/lineage`);
+      url.searchParams.set("build", build);
+      url.searchParams.set("embed_items", "true");
+      url.searchParams.set("page", "0");
+      const r = await fetch(url);
+      if (!r.ok) return names;
+      const j = await r.json();
+      const items = (j._embedded && j._embedded.items) || [];
+      // Titles only — alternate scientific names on a node can be homonyms
+      // from other clades (e.g. Trichocera lists synonym "Petaurista").
+      for (const n of items) {
+        const title = nodeTitle(n);
+        if (title) names.add(title);
+      }
+    } catch {
+      /* ignore */
+    }
+    return names;
+  }
+
+  function lineageCompatible(lineageNames, gbifAnchors) {
+    if (!gbifAnchors || !gbifAnchors.size) return true;
+    if (!lineageNames || !lineageNames.size) return false;
+    for (const a of gbifAnchors) {
+      if (lineageNames.has(a)) return true;
+    }
+    return false;
+  }
+
+  /**
+   * Prefer canonical title matches; when GBIF anchors exist, require lineage overlap
+   * so synonym/homonym hits in the wrong clade are rejected.
+   */
+  async function selectNode(items, query, build, gbifAnchors) {
+    const q = normalizeName(query);
+    if (!q) return null;
+    const candidates = (items || []).filter((n) => n && !isCoarseNode(n));
+    if (!candidates.length) return null;
+
+    const hasAnchors = gbifAnchors && gbifAnchors.size > 0;
+    const ranked = [...candidates].sort((a, b) => {
+      const aExact = nodeTitle(a) === q ? 0 : 1;
+      const bExact = nodeTitle(b) === q ? 0 : 1;
+      return aExact - bExact;
+    });
+
+    for (const node of ranked) {
+      const exactTitle = nodeTitle(node) === q;
+      // Without GBIF context, only accept an exact title when the search is ambiguous
+      // (e.g. "petaurista" → Trichocera synonym + squirrel genus).
+      if (!hasAnchors && ranked.length > 1 && !exactTitle) continue;
+
+      if (hasAnchors) {
+        const lineage = await nodeLineageNames(node.uuid, build);
+        if (!lineageCompatible(lineage, gbifAnchors)) continue;
+      }
+      return node;
+    }
+    return null;
+  }
+
   async function resolveGbifObjectId(objectId, build) {
     const url = new URL(`${API}/resolve/gbif.org/species`);
     url.searchParams.set("build", build);
@@ -217,12 +323,9 @@ window.PHYLOPIC_API = (() => {
    * Resolve via GBIF → PhyloPic, most-specific ID first.
    * Never accept kingdom/domain-level nodes (wrong silhouettes).
    */
-  async function nodeFromGbif(taxonKey, build) {
-    if (!taxonKey) return null;
+  async function nodeFromGbifSpecies(sp, build) {
+    if (!sp) return null;
     try {
-      const sp = await fetch(`https://api.gbif.org/v1/species/${taxonKey}`).then((r) =>
-        r.json()
-      );
       const ids = ["key", "genusKey", "familyKey", "orderKey", "classKey", "phylumKey"]
         .map((k) => sp[k])
         .filter(Boolean);
@@ -237,7 +340,7 @@ window.PHYLOPIC_API = (() => {
     }
   }
 
-  async function nodeFromName(name, build) {
+  async function nodeFromName(name, build, gbifAnchors) {
     const q = normalizeName(name);
     if (!q) return null;
     const url = new URL(`${API}/nodes`);
@@ -249,8 +352,7 @@ window.PHYLOPIC_API = (() => {
     if (!r.ok) return null;
     const j = await r.json();
     const items = (j._embedded && j._embedded.items) || [];
-    const node = items[0] || null;
-    return isCoarseNode(node) ? null : node;
+    return selectNode(items, q, build, gbifAnchors);
   }
 
   async function imageForNode(node, build) {
@@ -283,10 +385,15 @@ window.PHYLOPIC_API = (() => {
     const pending = (async () => {
       try {
         const build = await getBuild();
+        const gbifSp = await fetchGbifSpecies(taxonKey);
+        const gbifAnchors = anchorsFromGbif(gbifSp);
 
         // 1) Exact / provided names on PhyloPic (species-level when present)
         for (const n of tryNames) {
-          const img = await imageForNode(await nodeFromName(n, build), build);
+          const img = await imageForNode(
+            await nodeFromName(n, build, gbifAnchors),
+            build
+          );
           if (img) return img;
         }
 
@@ -294,12 +401,15 @@ window.PHYLOPIC_API = (() => {
         for (const n of tryNames) {
           const genus = normalizeName(n).split(" ")[0];
           if (!genus || genus === normalizeName(n)) continue;
-          const img = await imageForNode(await nodeFromName(genus, build), build);
+          const img = await imageForNode(
+            await nodeFromName(genus, build, gbifAnchors),
+            build
+          );
           if (img) return img;
         }
 
         // 3) GBIF ID resolve — specific → broad, never kingdom
-        return await imageForNode(await nodeFromGbif(taxonKey, build), build);
+        return await imageForNode(await nodeFromGbifSpecies(gbifSp, build), build);
       } catch {
         return null;
       }
