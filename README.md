@@ -1,5 +1,7 @@
 # Species Map Explorer
 
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21681874-blue)](https://doi.org/10.5281/zenodo.21681874)
+
 Classroom web app for exploring species occurrence maps with open biodiversity data.
 
 **Live demo:** [imageomics.github.io/hdr-species-map-explorer](https://imageomics.github.io/hdr-species-map-explorer/)
@@ -59,13 +61,7 @@ Please respect each provider’s terms of use and attribution requirements when 
 
 ## Citation
 
-If you use this software in research or teaching materials, please cite it:
-
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21681874-blue)](https://doi.org/10.5281/zenodo.21681874)
-
-**DOI:** [https://doi.org/10.5281/zenodo.21681874](https://doi.org/10.5281/zenodo.21681874)
-
-GitHub’s **Cite this repository** button also reads [`CITATION.cff`](CITATION.cff). A BibTeX entry is shown under **Sources** in the app.
+If you use this software in research or teaching materials, please cite it via the DOI above (or GitHub’s **Cite this repository** button, which reads [`CITATION.cff`](CITATION.cff)). A BibTeX entry is also shown under **Sources** in the app.
 
 ## License
 
