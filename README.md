@@ -1,6 +1,4 @@
-# Species Map Explorer
-
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21681874-blue)](https://doi.org/10.5281/zenodo.21681874)
+# Species Map Explorer [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21681874-blue)](https://doi.org/10.5281/zenodo.21681874)
 
 Classroom web app for exploring species occurrence maps with open biodiversity data.
 
