@@ -47,7 +47,7 @@ Forking the repo on GitHub and enabling GitHub Pages on your fork is another opt
 - [iNaturalist](https://www.inaturalist.org/) — example photos in the species gallery, plus taxonomy / similar-taxa tools (iNat observations are not plotted as their own map layer)
 - [PhyloPic](https://www.phylopic.org/) — silhouettes (credit and licenses shown in-app)
 - [OneZoom](https://www.onezoom.org/) — tree-of-life view opened from the species list (OZ button)
-- [OpenStreetMap](https://www.openstreetmap.org/copyright) / [CARTO](https://carto.com/attribution/) — basemap tiles
+- [Esri World Topo Map](https://www.arcgis.com/home/item.html?id=30e5fe3149c34df1ba922e6f5bbf808f) — basemap tiles
 - [WorldClim](https://www.worldclim.org/), [AWS Terrain](https://registry.opendata.aws/terrain-tiles/), [NASA GIBS](https://nasa-gibs.github.io/gibs-api-docs/) — climate / elevation / NDVI overlays
 - [Udvardy biogeographic provinces (1975)](https://data-gis.unep-wcmc.org/server/rest/services/Bio-geographicalRegions/Udvardy_Biogeographical_Provinces_1975/FeatureServer) via UNEP-WCMC
 
